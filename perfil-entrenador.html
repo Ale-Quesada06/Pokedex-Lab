@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokédex - Lista de Pokémon</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/pokeball.svg">
+  <link rel="icon" type="image/png" href="assets/pokeball.png">
+  <!-- favicon.ico vive en la raiz: el navegador lo pide solo, sin <link> -->
+
+  <!-- Hoja de estilos del sitio. Mismo elemento <link> que el favicon;
+       lo que cambia es rel, que dice qué relación tiene el archivo con el documento. -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+      <header>
+    <p>
+      <a class="logo" href="./">
+        <img src="assets/logo-pokedex.svg" alt="Pokédex" width="156" height="40">
+      </a>
+    </p>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" accesskey="p">Pokédex</a></li>
+        <li><a href="perfil-entrenador.html">Perfil de entrenador</a></li>
+        <li><a href="acerca-de.html">Acerca de</a></li>
+        <li><a href="configuracion.html">Configuración</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+      <section>
+        <img class="foto-perfil" src="assets/thanos.jpg" width="250" height="200">
+        <h1>#0001 Azul</h1>
+        <p>Edad: 29</p>
+        <p>Ciudad origen: Ciudad de los Mangos</p>
+        <p>Bio: Lorem ipsum Viva NachOS</p>
+
+        <button type="button">Editar Perfil</button>
+      </section>
+      
+      <section>
+        <button type="button" id="btn-equipo" command="show-modal" commandfor="modal-equipo">Equipo Pokémon</button>
+        <button type="button" id="btn-favoritos" command="show-modal" commandfor="modal-favoritos">Favoritos</button>
+        <button type="button" id="btn-capturados" command="show-modal" commandfor="modal-capturados">Pokémon Capturados</button>
+        <button type="button" id="btn-estadisticas" command="show-modal" commandfor="modal-estadisticas">Estadísticas</button>
+      </section>
+
+      <!-- Pop UP de Equipo-->
+      <dialog id="modal-equipo">
+        <h2>Equipo Pokémon</h2>
+        <section id="PokemonCardsTable">
+
+            <p>5 de 6 espacios ocupados</p>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <p>Espacio Libre</p>
+                </fieldset>
+            </section>
+
+        </section>
+
+        <section id="buttons">
+            <button type="button">
+            Agregar desde capturados   
+            </button>
+            <form method="dialog">
+              <button>Cerrar</button>
+            </form>
+        </section>
+
+
+      </dialog>
+
+
+      <!-- Pop UP de Favoritos-->
+
+      <dialog id="modal-favoritos">
+        <h2>Favoritos</h2>
+        <p>3 Pokemon marcados como favoritos</p>
+        <form method="dialog">
+          <button>X</button>
+        </form>
+        <p>
+          <section id="lista-favoritos">
+            <ul class="pokemon-list">
+              <li class="pokemon-card">
+                  <img class="pokemon-favorite" src="assets/favorite-icon.svg" alt="favorite-icon" width="40" height="40">
+                  <img class="pokemon-card__image" src="assets/bulbasaur.png" alt="Bulbasaur" width="96" height="96">
+                  <span class="pokemon-card__number">#001</span>
+                  <span class="pokemon-card__name">Bulbasaur</span>
+
+                  <a href="detalle-pokemon-bulbasaur.html">
+                    <button>Ver detalle</button>
+                  </a>
+
+                  <button type="button" command="show-modal" commandfor="open-favorites">
+                    Quitar de favoritos
+                  </button>
+
+              </li>
+
+              <li class = "pokemon-card">
+                <img class="pokemon-favorite" src="assets/favorite-icon.svg" alt="favorite-icon" width="40" height="40">
+                <img class="pokemon-card__image" src="assets/charmeleon.png" alt="Charmeleon" width="96" height="96">
+                <span class="pokemon-card__number">#005</span>
+                <span class="pokemon-card__name">Charmeleon</span>
+
+                <a href="detalle-pokemon-charmeleon.html">
+                  <button>Ver detalle</button>
+                </a>
+
+                <button type="button" command="show-modal" commandfor="open-favorites">
+                  Quitar de favoritos
+                </button>
+
+
+              </li>
+
+              <li class="pokemon-card">
+                  <img class="pokemon-favorite" src="assets/favorite-icon.svg" alt="favorite-icon" width="40" height="40">
+                  <img class="pokemon-card__image" src="assets/charizard.png" alt="Charizard" width="96" height="96">
+                  <span class="pokemon-card__number">#006</span>
+                  <span class="pokemon-card__name">Charizard</span>
+
+                  <a href="detalle-pokemon-charizard.html">
+                    <button>Ver detalle</button>
+                  </a>
+
+                  <button type="button" command="show-modal" commandfor="open-favorites">
+                    Quitar de favoritos
+                  </button>
+                </a>
+              </li>
+              
+            </ul>
+
+            <p>
+              <button type="button" command="close" commandfor="open-favorites">Confirmar</button>
+            </p>
+
+          </section>
+        </p>
+      </dialog>
+
+      <!-- Pop UP de Capturados-->
+      <dialog id="modal-capturados">
+        <h2>Pokémon capturados</h2>
+        <form method="dialog">
+          <button>X</button>
+        </form>
+
+        <p>Seleccioná los que querés en tu equipo o marcalos como favoritos.</p>
+
+        <form>
+          <label>Buscar por nombre <input type="search" /></label>
+          <label
+            >Tipo
+            <select>
+              <option>Todos</option>
+              <option>Planta</option>
+              <option>Veneno</option>
+              <option>Fuego</option>
+              <option>Volador</option>
+              <option>Otros</option>
+            </select>
+          </label>
+          <button type="submit">Buscar</button>
+        </form>
+
+        <ul>
+          <li>
+            <label
+              ><input type="checkbox" checked /> Seleccionar a Bulbasaur</label
+            >
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/bulbasaur.png" alt="Bulbasaur" />
+            <p>#001 Bulbasaur</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Ivysaur</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/ivysaur.png" alt="Ivysaur" />
+            <p>#002 Ivysaur</p>
+          </li>
+          <li>
+            <label
+              ><input type="checkbox" checked /> Seleccionar a Venusaur</label
+            >
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/venusaur.png" alt="Venusaur" />
+            <p>#003 Venusaur</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Charmander</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/charmander.png" alt="Charmander" />
+            <p>#004 Charmander</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Charmeleon</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/charmeleon.png" alt="Charmeleon" />
+            <p>#005 Charmeleon</p>
+          </li>
+          <li>
+            <label
+              ><input type="checkbox" checked /> Seleccionar a Charizard</label
+            >
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/charizard.png" alt="Charizard" />
+            <p>#006 Charizard</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Squirtle</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/squirtle.png" alt="Squirtle" />
+            <p>#007 Squirtle</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Wartortle</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/wartortle.png" alt="Wartortle" />
+            <p>#008 Wartortle</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Blastoise</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/blastoise.png" alt="Blastoise" />
+            <p>#009 Blastoise</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Pikachu</label>
+            <img src="assets/favorite-icon.svg"/>
+            <img src="assets/pikachu.png" alt="Pikachu" />
+            <p>#025 Pikachu</p>
+          </li>
+        </ul>
+
+        <p>Mostrando 10 de 10 capturados</p>
+
+        <p><strong>3 de 10 seleccionados</strong></p>
+        <button type="button">Marcar favorito</button>
+        <button type="button">Agregar al equipo</button>
+      </dialog>
+      
+      <!-- Pop UP de estadísticas-->
+      <dialog id="modal-estadisticas">
+        <h2>Estadísticas</h2>
+        <p>Comparativa de los Pokémon de tu equipo</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Pokémon</th>
+              <th>PS</th>
+              <th>ATQ</th>
+              <th>DEF</th>
+              <th>AT. ESP.</th>
+              <th>DEF. ESP.</th>
+              <th>VEL</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- scope="row" porque este th encabeza la fila, no la columna -->
+            <tr>
+              <th scope="row">Bulbasaur</th>
+              <td>45</td>
+              <td>49</td>
+              <td>49</td>
+              <td>65</td>
+              <td>65</td>
+              <td>45</td>
+              <td>318</td>
+            </tr>
+            <tr>
+              <th scope="row">Ivysaur</th>
+              <td>60</td>
+              <td>62</td>
+              <td>63</td>
+              <td>80</td>
+              <td>80</td>
+              <td>60</td>
+              <td>405</td>
+            </tr>
+            <tr>
+              <th scope="row">Charmander</th>
+              <td>39</td>
+              <td>52</td>
+              <td>43</td>
+              <td>60</td>
+              <td>50</td>
+              <td>65</td>
+              <td>309</td>
+            </tr>
+            <tr>
+              <th scope="row">Charmeleon</th>
+              <td>58</td>
+              <td>64</td>
+              <td>58</td>
+              <td>80</td>
+              <td>65</td>
+              <td>80</td>
+              <td>405</td>
+            </tr>
+            <tr>
+              <th scope="row">Squirtle</th>
+              <td>44</td>
+              <td>48</td>
+              <td>65</td>
+              <td>50</td>
+              <td>64</td>
+              <td>43</td>
+              <td>314</td>
+            </tr>
+            <tr>
+              <th scope="row">Pikachu</th>
+              <td>35</td>
+              <td>55</td>
+              <td>40</td>
+              <td>50</td>
+              <td>50</td>
+              <td>90</td>
+              <td>320</td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <th scope="row">Promedio del equipo</th>
+              <td>47</td>
+              <td>55</td>
+              <td>53</td>
+              <td>64</td>
+              <td>62</td>
+              <td>64</td>
+              <td>345</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <p><small>Valores base tomados de la Pokédex. La última fila resume el equipo completo.</small></p>
+
+        <!-- Un form con method="dialog" cierra el modal sin JavaScript -->
+        <form method="dialog">
+          <button>Cerrar</button>
+        </form>
+      </dialog>
+        
+    </main>
+
+    <footer>
+    <p><small>Proyecto académico del curso Desarrollo de Aplicaciones Web
+        (<abbr title="Curso de Informática 0137">CI-0137</abbr>),
+        Escuela de Ciencias de la Computación e Informática,
+        <abbr title="Universidad de Costa Rica">UCR</abbr>.
+        <time datetime="2026">2026</time>.</small></p>
+
+    <p><small>Pokémon y sus personajes son marcas registradas de Nintendo,
+        Game Freak y The Pokémon Company. Este sitio no tiene ninguna relación con
+        ellos y se usa únicamente con fines educativos.</small></p>
+
+    <p><small>Ilustraciones y sprites tomados del repositorio
+        <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a>.
+        Datos de referencia consultados en
+        <a href="https://pokemondb.net/" target="_blank" rel="noopener">Pokémon Database</a>.</small></p>
+  </footer>
+
+</body>
