@@ -47,12 +47,183 @@
       </section>
       
       <section>
-        <button type="button" id="btn-equipo">Equipo Pokémon</button>
-        <button type="button" id="btn-favoritos">Favoritos</button>
-        <button type="button" id="btn-capturados">Pokémon Capturados</button>
+        <button type="button" id="btn-equipo" command="show-modal" commandfor="modal-equipo">Equipo Pokémon</button>
+        <button type="button" id="btn-favoritos" command="show-modal" commandfor="modal-favoritos">Favoritos</button>
+        <button type="button" id="btn-capturados" command="show-modal" commandfor="modal-capturados">Pokémon Capturados</button>
         <button type="button" id="btn-estadisticas" command="show-modal" commandfor="modal-estadisticas">Estadísticas</button>
       </section>
 
+      <!-- Pop UP de Equipo-->
+      <dialog id="modal-equipo">
+        <h2>Equipo Pokémon</h2>
+        <section id="PokemonCardsTable">
+
+            <p>5 de 6 espacios ocupados</p>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
+                    <p>#001</p>
+                    <p>Nombre</p>
+                    <button type="button">Quitar</button>
+                </fieldset>
+            </section>
+
+            <section class = "pokemonSquare">
+                <fieldset>
+                    <p>Espacio Libre</p>
+                </fieldset>
+            </section>
+
+        </section>
+
+        <section id="buttons">
+            <button type="button">
+            Agregar desde capturados   
+            </button>
+            <form method="dialog">
+              <button>Cerrar</button>
+            </form>
+        </section>
+
+
+      </dialog>
+      <!-- Pop UP de Favoritos-->
+
+
+      <!-- Pop UP de Capturados-->
+      <dialog id="modal-capturados">
+        <h2>Pokémon capturados</h2>
+        <form method="dialog">
+          <button>X</button>
+        </form>
+
+        <p>Seleccioná los que querés en tu equipo o marcalos como favoritos.</p>
+
+        <form>
+          <label>Buscar por nombre <input type="search" /></label>
+          <label
+            >Tipo
+            <select>
+              <option>Todos</option>
+              <option>Planta</option>
+              <option>Veneno</option>
+              <option>Fuego</option>
+              <option>Volador</option>
+              <option>Otros</option>
+            </select>
+          </label>
+          <button type="submit">Buscar</button>
+        </form>
+
+        <ul>
+          <li>
+            <label
+              ><input type="checkbox" checked /> Seleccionar a Bulbasaur</label
+            >
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/bulbasaur.png" alt="Bulbasaur" />
+            <p>#001 Bulbasaur</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Ivysaur</label>
+            <label><input type="checkbox" checked /> Favorito</label>
+            <img src="assets/ivysaur.png" alt="Ivysaur" />
+            <p>#002 Ivysaur</p>
+          </li>
+          <li>
+            <label
+              ><input type="checkbox" checked /> Seleccionar a Venusaur</label
+            >
+            <label><input type="checkbox" checked /> Favorito</label>
+            <img src="assets/venusaur.png" alt="Venusaur" />
+            <p>#003 Venusaur</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Charmander</label>
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/charmander.png" alt="Charmander" />
+            <p>#004 Charmander</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Charmeleon</label>
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/charmeleon.png" alt="Charmeleon" />
+            <p>#005 Charmeleon</p>
+          </li>
+          <li>
+            <label
+              ><input type="checkbox" checked /> Seleccionar a Charizard</label
+            >
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/charizard.png" alt="Charizard" />
+            <p>#006 Charizard</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Squirtle</label>
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/squirtle.png" alt="Squirtle" />
+            <p>#007 Squirtle</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Wartortle</label>
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/wartortle.png" alt="Wartortle" />
+            <p>#008 Wartortle</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Blastoise</label>
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/blastoise.png" alt="Blastoise" />
+            <p>#009 Blastoise</p>
+          </li>
+          <li>
+            <label><input type="checkbox" /> Seleccionar a Pikachu</label>
+            <label><input type="checkbox" /> Favorito</label>
+            <img src="assets/pikachu.png" alt="Pikachu" />
+            <p>#025 Pikachu</p>
+          </li>
+        </ul>
+
+        <p>Mostrando 10 de 10 capturados</p>
+
+        <p><strong>3 de 10 seleccionados</strong></p>
+        <button type="button">Marcar favorito</button>
+        <button type="button">Agregar al equipo</button>
+      </dialog>
+      
+      <!-- Pop UP de estadísticas-->
       <dialog id="modal-estadisticas">
         <h2>Estadísticas</h2>
         <p>Comparativa de los Pokémon de tu equipo</p>
