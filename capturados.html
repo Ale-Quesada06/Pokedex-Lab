@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pokémon capturados</title>
+  </head>
+  <body>
+    <button type="button" commandfor="capturados" command="show-modal">
+      Ver
+    </button>
+
+    <dialog id="capturados">
+      <h2>Pokémon capturados</h2>
+      <button type="button" commandfor="capturados" command="close">X</button>
+
+      <p>Seleccioná los que querés en tu equipo o marcalos como favoritos.</p>
+
+      <form>
+        <label>Buscar por nombre <input type="search" /></label>
+        <label
+          >Tipo
+          <select>
+            <option>Todos</option>
+            <option>Planta</option>
+            <option>Veneno</option>
+            <option>Fuego</option>
+            <option>Volador</option>
+            <option>Otros</option>
+          </select>
+        </label>
+        <button type="submit">Buscar</button>
+      </form>
+
+      <ul>
+        <li>
+          <label
+            ><input type="checkbox" checked /> Seleccionar a Bulbasaur</label
+          >
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/bulbasaur.png" alt="Bulbasaur" />
+          <p>#001 Bulbasaur</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Ivysaur</label>
+          <label><input type="checkbox" checked /> Favorito</label>
+          <img src="assets/ivysaur.png" alt="Ivysaur" />
+          <p>#002 Ivysaur</p>
+        </li>
+        <li>
+          <label
+            ><input type="checkbox" checked /> Seleccionar a Venusaur</label
+          >
+          <label><input type="checkbox" checked /> Favorito</label>
+          <img src="assets/venusaur.png" alt="Venusaur" />
+          <p>#003 Venusaur</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Charmander</label>
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/charmander.png" alt="Charmander" />
+          <p>#004 Charmander</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Charmeleon</label>
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/charmeleon.png" alt="Charmeleon" />
+          <p>#005 Charmeleon</p>
+        </li>
+        <li>
+          <label
+            ><input type="checkbox" checked /> Seleccionar a Charizard</label
+          >
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/charizard.png" alt="Charizard" />
+          <p>#006 Charizard</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Squirtle</label>
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/squirtle.png" alt="Squirtle" />
+          <p>#007 Squirtle</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Wartortle</label>
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/wartortle.png" alt="Wartortle" />
+          <p>#008 Wartortle</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Blastoise</label>
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/blastoise.png" alt="Blastoise" />
+          <p>#009 Blastoise</p>
+        </li>
+        <li>
+          <label><input type="checkbox" /> Seleccionar a Pikachu</label>
+          <label><input type="checkbox" /> Favorito</label>
+          <img src="assets/pikachu.png" alt="Pikachu" />
+          <p>#025 Pikachu</p>
+        </li>
+      </ul>
+
+      <p>Mostrando 10 de 10 capturados</p>
+
+      <p><strong>3 de 10 seleccionados</strong></p>
+      <button type="button">Marcar favorito</button>
+      <button type="button">Agregar al equipo</button>
+    </dialog>
+  </body>
+</html>
