@@ -9,8 +9,9 @@ Laboratorio 1 del curso CI-0137 Desarrollo de Aplicaciones Web, Universidad de C
 | Josué Morera Salas         | C4H757 |
 | Alejandro Quesada Espinoza | C4I578 |
 | Adrian Rodriguez Hernandez | C39321 |
+| Jordan Obando Brenes       | C25597 |
 | Jean Aguilar Mena          | B70134 |
-
+ 
 ## Sitio publicado
 
 [Ver el perfil de entrenador](https://ale-quesada06.github.io/Pokedex-Lab/perfil.html)
