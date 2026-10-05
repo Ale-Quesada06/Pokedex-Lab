@@ -1,0 +1,358 @@
+/*
+   Pokédex Modal de Estadísticas
+   Laboratorio 2, CI-0137
+
+   Secciones:
+     1. Variables propias
+     2. Utilidad: texto oculto visualmente
+     3. Caja del modal y fondo
+     4. Encabezado del modal (ícono, título y botón cerrar)
+     5. Contenido: descripción y tabla
+     6. Pie del modal y botón principal
+     7. Estados :hover y :focus-visible
+ */
+
+
+/*
+   1. Variables propias
+ */
+
+/* tokens.css no trae estos valores, así que se agregan acá, en :root, igual
+   que allá. Así se siguen usando con var() y se cambian en una sola línea. */
+:root {
+  --verde:            #2E8B57;   /* recuadro del ícono de Estadísticas */
+  --blanco-puro:      #FFFFFF;   /* fondo de la caja del modal */
+  --azul-oscuro:      #1F55A8;   /* botón principal al pasar el mouse */
+  --radio-modal:      24px;      /* esquinas de la caja del modal */
+  --radio-icono:      12px;      /* esquinas del recuadro del ícono */
+  --sombra-suave:     0 8px 24px rgba(20, 44, 82, 0.18);
+  --sombra-boton:     0 6px 14px rgba(41, 103, 197, 0.35);
+}
+
+
+/*
+   2. Utilidad: texto oculto visualmente
+ */
+
+/* Esconde el texto de la pantalla pero NO del lector de pantalla.
+   display: none y visibility: hidden lo borrarían también para el lector,
+   por eso no se usan. La idea es dejar una caja de 1 px, recortada, que
+   sigue existiendo en el documento. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/*
+   3. Caja del modal y fondo
+ */
+
+/* <dialog> abierto con showModal ya aparece centrado y encima de todo: eso
+   lo hace el navegador. Acá solo se le da la apariencia de caja blanca.
+
+   padding: 0 porque cada franja (encabezado, contenido, pie) pone su propio
+   relleno; así el fondo del pie llega de borde a borde.
+
+   min() elige el menor de los dos valores: 820px en pantallas grandes y
+   "todo el ancho menos 2rem" en pantallas chicas. */
+.modal-estadisticas {
+  width: min(820px, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 0;
+  border: none;
+  border-radius: var(--radio-modal);
+  background: var(--blanco-puro);
+  color: var(--navy);
+  font-family: var(--fuente-texto, sans-serif);
+  box-shadow: 0 24px 60px rgba(20, 44, 82, 0.35);
+}
+
+/* ::backdrop es la capa que tapa la página detrás del modal.
+   El color va escrito directo (navy con transparencia) porque algunos
+   navegadores no le pasan las variables de :root a ::backdrop. */
+.modal-estadisticas::backdrop {
+  background: rgba(20, 44, 82, 0.55);
+}
+
+
+/*
+   4. Encabezado del modal
+ */
+
+/* Flexbox pone el título y el botón en una fila.
+   justify-content: space-between los manda a los extremos;
+   align-items: center los centra en vertical. */
+.modal-estadisticas__encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--pista);
+}
+
+/* El título también es flex para alinear el ícono (::before) con el texto. */
+.modal-estadisticas__titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--fuente-titulo, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Ícono del encabezado. No está en el HTML: lo crea el CSS.
+   content: "" es obligatorio; sin content el pseudo-elemento no existe.
+   Un pseudo-elemento es de línea por defecto, por eso necesita un display
+   que respete width y height (acá block, porque el padre es flex).
+
+   El shorthand background junta: color de fondo, imagen, posición / tamaño
+   y repetición. El recuadro verde es el color; las barras blancas, el SVG. */
+.modal-estadisticas__titulo::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radio-icono);
+  background: var(--verde) url("assets/iconos/estadisticas.svg") center / 24px no-repeat;
+  box-shadow: 0 6px 14px rgba(46, 139, 87, 0.4);
+}
+
+/* Botón circular de cerrar: la X es un ::before y el texto "Cerrar" queda
+   oculto con .visually-hidden (sigue en el HTML para el lector de pantalla).
+   Para que un círculo salga perfecto, ancho = alto y radio de pastilla. */
+.boton-cerrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--pista);
+  border-radius: var(--radio-pastilla);
+  background: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-cerrar::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("assets/iconos/cerrar.svg") center / contain no-repeat;
+}
+
+
+/*
+   5. Contenido: descripción y tabla
+ */
+
+.modal-estadisticas__contenido {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.modal-estadisticas__descripcion {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.modal-estadisticas__nota {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+
+/* Una tabla con border-collapse no redondea bien sus esquinas, así que el
+   radio y la sombra van en este marco.
+   overflow-x: auto hace dos cosas: si la tabla no cabe (celular) aparece
+   una barra de scroll horizontal, y además recorta lo que se sale del
+   radio, así las esquinas de la tabla quedan redondeadas. */
+.tabla-estadisticas__marco {
+  overflow-x: auto;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-suave);
+}
+
+/* width: 100% para que la tabla llene el marco.
+   border-collapse: collapse junta los bordes de celdas vecinas en uno solo. */
+.tabla-estadisticas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Reglas para todas las celdas: mismo relleno y texto a la izquierda,
+   como en el diseño. */
+.tabla-estadisticas th,
+.tabla-estadisticas td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+/* Fila de encabezados: fondo crema y letra pequeña y en negrita. */
+.tabla-estadisticas thead th {
+  background: var(--crema);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* abbr trae un subrayado punteado por defecto; el diseño no lo lleva.
+   cursor: help avisa que al pasar el mouse sale el nombre completo. */
+.tabla-estadisticas thead abbr {
+  text-decoration: none;
+  cursor: help;
+}
+
+/* Filas del cuerpo: una línea tenue abajo de cada una y colores
+   alternados. :nth-child(even) selecciona las filas pares (2, 4, 6...). */
+.tabla-estadisticas tbody tr {
+  background: var(--blanco-puro);
+  border-bottom: 1px solid var(--pista);
+}
+
+.tabla-estadisticas tbody tr:nth-child(even) {
+  background: var(--blanco);
+}
+
+/* Celda con el sprite y el nombre. No se le pone display: flex porque
+   dejaría de comportarse como celda de tabla; en su lugar la imagen se
+   alinea con vertical-align. */
+.tabla-estadisticas__pokemon {
+  font-family: var(--fuente-titulo, sans-serif);
+  font-weight: 700;
+}
+
+/* Los PNG traen mucho borde transparente alrededor del Pokémon, así que la
+   imagen se dibuja más grande (48px) y el margin negativo arriba y abajo
+   evita que la fila crezca por eso. */
+.tabla-estadisticas__sprite {
+  width: 48px;
+  height: 48px;
+  margin: -0.5rem 0.25rem -0.5rem -0.25rem;
+  vertical-align: middle;
+}
+
+/* El valor más alto de cada columna va en negrita, como en el diseño. */
+.tabla-estadisticas__maximo {
+  font-weight: 700;
+}
+
+/* La columna Total va alineada a la derecha. Este selector tiene dos clases
+   (especificidad 0,2,0) y la regla general ".tabla-estadisticas td" tiene
+   una clase y una etiqueta (0,1,1). Gana el que tiene más clases. */
+.tabla-estadisticas .tabla-estadisticas__total {
+  text-align: right;
+}
+
+/* Pastilla navy con el total de cada Pokémon.
+   inline-block para que el relleno vertical agrande la caja. */
+.pastilla-total {
+  display: inline-block;
+  min-width: 3rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radio-pastilla);
+  background: var(--navy);
+  color: var(--blanco);
+  font-family: var(--fuente-titulo, sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Fila de promedio: fondo amarillo y todo en negrita.
+   Navy sobre amarillo tiene contraste 9.5:1 (ver tokens.css). */
+.tabla-estadisticas tfoot tr {
+  background: var(--amarillo);
+}
+
+.tabla-estadisticas tfoot th,
+.tabla-estadisticas tfoot td {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  font-family: var(--fuente-titulo, sans-serif);
+  font-weight: 700;
+}
+
+.tabla-estadisticas tfoot .tabla-estadisticas__total {
+  font-size: 1.1rem;
+}
+
+
+/*
+   6. Pie del modal y botón principal
+ */
+
+/* Franja gris clara de borde a borde con el botón a la derecha.
+   justify-content: flex-end empuja el contenido al final de la fila. */
+.modal-estadisticas__pie {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--pista);
+  background: var(--blanco);
+}
+
+/* Botón azul tipo pastilla con sombra del mismo color. */
+.boton-primario {
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: var(--radio-pastilla);
+  background: var(--azul);
+  color: var(--blanco);
+  font-family: var(--fuente-titulo, sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: var(--sombra-boton);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+
+/*
+   7. Estados :hover y :focus-visible
+ */
+
+/* :hover = el mouse está encima.
+   :focus-visible = el elemento tiene el foco y el navegador decide que hay
+   que mostrarlo (al navegar con teclado; no al hacer clic con el mouse).
+   Se escriben juntos para que quien usa teclado vea el mismo cambio.
+
+   transition (declarada arriba en cada botón) nombra la propiedad que se
+   anima, nunca "all", y dura 0.2 s. */
+
+.boton-cerrar:hover,
+.boton-cerrar:focus-visible {
+  background: var(--pista);
+  transform: scale(1.08);
+}
+
+.boton-primario:hover,
+.boton-primario:focus-visible {
+  background: var(--azul-oscuro);
+  transform: translateY(-2px);
+}
+
+/* El anillo de foco nunca se quita sin poner otro: es lo que le dice a la
+   persona con teclado dónde está. Azul porque el amarillo casi no se ve
+   sobre el fondo blanco del modal. */
+.boton-cerrar:focus-visible,
+.boton-primario:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+/* Resaltar la fila bajo el mouse ayuda a leer los números de una fila. */
+.tabla-estadisticas tbody tr:hover {
+  background: var(--crema);
+}
