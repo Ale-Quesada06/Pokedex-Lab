@@ -14,6 +14,7 @@
        lo que cambia es rel, que dice qué relación tiene el archivo con el documento. -->
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pokemonesCapturados.css">
 </head>
 
 
@@ -193,103 +194,118 @@
 
       <!-- Pop UP de Capturados-->
       <dialog id="modal-capturados">
-        <h2>Pokémon capturados</h2>
-        <form method="dialog">
-          <button>X</button>
+        <div class="capturados-header">
+          <h2>Pokémon capturados</h2>
+          <form method="dialog">
+            <button class="cerrar">X</button>
+          </form>
+        </div>
+
+        <p class="capturados-texto">Seleccioná los que querés en tu equipo o marcalos como favoritos.</p>
+
+        <form class="capturados-buscador">
+          <input type="search" placeholder="Buscar por nombre" aria-label="Buscar por nombre" />
+          <select aria-label="Tipo">
+            <option>Todos</option>
+            <option>Planta</option>
+            <option>Veneno</option>
+            <option>Fuego</option>
+            <option>Volador</option>
+            <option>Otros</option>
+          </select>
+          <button type="submit" class="boton-oscuro">Buscar</button>
         </form>
 
-        <p>Seleccioná los que querés en tu equipo o marcalos como favoritos.</p>
-
-        <form>
-          <label>Buscar por nombre <input type="search" /></label>
-          <label
-            >Tipo
-            <select>
-              <option>Todos</option>
-              <option>Planta</option>
-              <option>Veneno</option>
-              <option>Fuego</option>
-              <option>Volador</option>
-              <option>Otros</option>
-            </select>
-          </label>
-          <button type="submit">Buscar</button>
-        </form>
-
-        <ul>
-          <li>
-            <label
-              ><input type="checkbox" checked /> Seleccionar a Bulbasaur</label
-            >
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/bulbasaur.png" alt="Bulbasaur" />
+        <ul class="capturados-lista">
+          <li class="tarjeta seleccionada">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Bulbasaur" checked />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/bulbasaur.png" alt="Bulbasaur" />
             <p>#001 Bulbasaur</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Ivysaur</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/ivysaur.png" alt="Ivysaur" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Ivysaur" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/ivysaur.png" alt="Ivysaur" />
             <p>#002 Ivysaur</p>
           </li>
-          <li>
-            <label
-              ><input type="checkbox" checked /> Seleccionar a Venusaur</label
-            >
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/venusaur.png" alt="Venusaur" />
+          <li class="tarjeta seleccionada">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Venusaur" checked />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/venusaur.png" alt="Venusaur" />
             <p>#003 Venusaur</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Charmander</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/charmander.png" alt="Charmander" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Charmander" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/charmander.png" alt="Charmander" />
             <p>#004 Charmander</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Charmeleon</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/charmeleon.png" alt="Charmeleon" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Charmeleon" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/charmeleon.png" alt="Charmeleon" />
             <p>#005 Charmeleon</p>
           </li>
-          <li>
-            <label
-              ><input type="checkbox" checked /> Seleccionar a Charizard</label
-            >
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/charizard.png" alt="Charizard" />
+          <li class="tarjeta seleccionada">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Charizard" checked />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/charizard.png" alt="Charizard" />
             <p>#006 Charizard</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Squirtle</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/squirtle.png" alt="Squirtle" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Squirtle" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/squirtle.png" alt="Squirtle" />
             <p>#007 Squirtle</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Wartortle</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/wartortle.png" alt="Wartortle" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Wartortle" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/wartortle.png" alt="Wartortle" />
             <p>#008 Wartortle</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Blastoise</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/blastoise.png" alt="Blastoise" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Blastoise" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/blastoise.png" alt="Blastoise" />
             <p>#009 Blastoise</p>
           </li>
-          <li>
-            <label><input type="checkbox" /> Seleccionar a Pikachu</label>
-            <img src="assets/favorite-icon.svg"/>
-            <img src="assets/pikachu.png" alt="Pikachu" />
+          <li class="tarjeta">
+            <div class="tarjeta-arriba">
+              <input type="checkbox" aria-label="Seleccionar a Pikachu" />
+              <img class="estrella" src="assets/favorite-icon.svg" alt="Favorito" />
+            </div>
+            <img class="tarjeta-foto" src="assets/pikachu.png" alt="Pikachu" />
             <p>#025 Pikachu</p>
           </li>
         </ul>
 
-        <p>Mostrando 10 de 10 capturados</p>
+        <p class="capturados-texto">Mostrando 10 de 10 capturados</p>
 
-        <p><strong>3 de 10 seleccionados</strong></p>
-        <button type="button">Marcar favorito</button>
-        <button type="button">Agregar al equipo</button>
+        <div class="capturados-footer">
+          <p><strong>3 de 10 seleccionados</strong></p>
+          <button type="button" class="boton-claro">Marcar favorito</button>
+          <button type="button" class="boton-oscuro">Agregar al equipo</button>
+        </div>
       </dialog>
       
       <!-- Pop UP de estadísticas-->

@@ -1,0 +1,112 @@
+#modal-capturados {
+  width: 800px;
+  padding: 0;
+  border: 3px solid var(--navy);
+  border-radius: 10px;
+  background: var(--blanco);
+  color: var(--navy);
+}
+
+#modal-capturados::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.capturados-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 2px solid var(--navy);
+}
+
+.cerrar {
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.capturados-texto {
+  margin: 16px 24px;
+}
+
+.capturados-buscador {
+  display: flex;
+  gap: 16px;
+  margin: 0 24px 16px;
+}
+
+.capturados-buscador input {
+  flex: 2;
+  padding: 10px;
+}
+
+.capturados-buscador select {
+  flex: 1;
+  padding: 10px;
+}
+
+.boton-oscuro {
+  padding: 12px 32px;
+  border: 1px solid var(--navy);
+  background: var(--navy);
+  color: white;
+  cursor: pointer;
+}
+
+.boton-claro {
+  padding: 12px 32px;
+  border: 1px solid var(--navy);
+  background: white;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.capturados-lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  height: 450px;
+  overflow-y: scroll;
+  margin: 0 24px;
+  padding: 16px;
+  border: 1px solid var(--pista);
+  list-style: none;
+}
+
+.tarjeta {
+  padding: 10px;
+  border: 2px solid var(--pista);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.seleccionada {
+  border: 3px solid var(--navy);
+}
+
+.tarjeta-arriba {
+  display: flex;
+  justify-content: space-between;
+}
+
+.estrella {
+  width: 22px;
+}
+
+.tarjeta-foto {
+  width: 80px;
+  height: 80px;
+}
+
+.capturados-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+  border-top: 2px solid var(--navy);
+}
+
+.capturados-footer p {
+  flex: 1;
+}
