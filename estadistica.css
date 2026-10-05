@@ -1,0 +1,272 @@
+/* Modal de estadísticas - Lab 2 CI-0137 */
+
+
+/* Colores y medidas que no estaban en tokens.css */
+:root {
+  --verde:            #2E8B57;   /* cuadrito del ícono */
+  --blanco-puro:      #FFFFFF;
+  --azul-oscuro:      #1F55A8;   /* hover del botón azul */
+  --radio-modal:      24px;
+  --radio-icono:      12px;
+  --sombra-suave:     0 8px 24px rgba(20, 44, 82, 0.18);
+  --sombra-boton:     0 6px 14px rgba(41, 103, 197, 0.35);
+}
+
+
+/* Para esconder texto pero que el lector de pantalla sí lo lea
+   (con display: none tampoco lo leería) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ---------- Caja del modal ---------- */
+
+/* padding en 0 porque cada parte (encabezado, contenido, pie) tiene el suyo */
+.modal-estadisticas {
+  width: min(820px, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 0;
+  border: none;
+  border-radius: var(--radio-modal);
+  background: var(--blanco-puro);
+  color: var(--navy);
+  font-family: var(--fuente-texto, sans-serif);
+  box-shadow: 0 24px 60px rgba(20, 44, 82, 0.35);
+}
+
+/* fondo oscuro detrás del modal. Va con el color escrito porque
+   las variables no siempre funcionan en ::backdrop */
+.modal-estadisticas::backdrop {
+  background: rgba(20, 44, 82, 0.55);
+}
+
+
+/* ---------- Encabezado ---------- */
+
+.modal-estadisticas__encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--pista);
+}
+
+.modal-estadisticas__titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--fuente-titulo, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* el cuadro verde con las barras, hecho con ::before */
+.modal-estadisticas__titulo::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radio-icono);
+  background: var(--verde) url("assets/iconos/estadisticas.svg") center / 24px no-repeat;
+  box-shadow: 0 6px 14px rgba(46, 139, 87, 0.4);
+}
+
+/* botón redondo de la X */
+.boton-cerrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--pista);
+  border-radius: var(--radio-pastilla);
+  background: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-cerrar::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("assets/iconos/cerrar.svg") center / contain no-repeat;
+}
+
+
+/* ---------- Contenido y tabla ---------- */
+
+.modal-estadisticas__contenido {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.modal-estadisticas__descripcion {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.modal-estadisticas__nota {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+
+/* la tabla no redondea bien las esquinas, por eso va dentro de este div.
+   El overflow también sirve para que en celular se pueda hacer scroll */
+.tabla-estadisticas__marco {
+  overflow-x: auto;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-suave);
+}
+
+.tabla-estadisticas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.tabla-estadisticas th,
+.tabla-estadisticas td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.tabla-estadisticas thead th {
+  background: var(--crema);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* quitar el subrayado que trae abbr */
+.tabla-estadisticas thead abbr {
+  text-decoration: none;
+  cursor: help;
+}
+
+.tabla-estadisticas tbody tr {
+  background: var(--blanco-puro);
+  border-bottom: 1px solid var(--pista);
+}
+
+/* filas pares con otro color */
+.tabla-estadisticas tbody tr:nth-child(even) {
+  background: var(--blanco);
+}
+
+.tabla-estadisticas__pokemon {
+  font-family: var(--fuente-titulo, sans-serif);
+  font-weight: 700;
+}
+
+/* los png tienen mucho espacio vacío alrededor, entonces se ponen más
+   grandes y con margin negativo para que la fila no crezca */
+.tabla-estadisticas__sprite {
+  width: 48px;
+  height: 48px;
+  margin: -0.5rem 0.25rem -0.5rem -0.25rem;
+  vertical-align: middle;
+}
+
+/* el valor más alto de cada columna */
+.tabla-estadisticas__maximo {
+  font-weight: 700;
+}
+
+/* con dos clases para que le gane a ".tabla-estadisticas td" */
+.tabla-estadisticas .tabla-estadisticas__total {
+  text-align: right;
+}
+
+.pastilla-total {
+  display: inline-block;
+  min-width: 3rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radio-pastilla);
+  background: var(--navy);
+  color: var(--blanco);
+  font-family: var(--fuente-titulo, sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* fila amarilla del promedio */
+.tabla-estadisticas tfoot tr {
+  background: var(--amarillo);
+}
+
+.tabla-estadisticas tfoot th,
+.tabla-estadisticas tfoot td {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  font-family: var(--fuente-titulo, sans-serif);
+  font-weight: 700;
+}
+
+.tabla-estadisticas tfoot .tabla-estadisticas__total {
+  font-size: 1.1rem;
+}
+
+
+/* ---------- Pie ---------- */
+
+.modal-estadisticas__pie {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--pista);
+  background: var(--blanco);
+}
+
+.boton-primario {
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: var(--radio-pastilla);
+  background: var(--azul);
+  color: var(--blanco);
+  font-family: var(--fuente-titulo, sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: var(--sombra-boton);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+
+/* ---------- Hover y foco ---------- */
+
+/* focus-visible junto con hover para que con teclado se vea igual */
+.boton-cerrar:hover,
+.boton-cerrar:focus-visible {
+  background: var(--pista);
+  transform: scale(1.08);
+}
+
+.boton-primario:hover,
+.boton-primario:focus-visible {
+  background: var(--azul-oscuro);
+  transform: translateY(-2px);
+}
+
+.boton-cerrar:focus-visible,
+.boton-primario:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+.tabla-estadisticas tbody tr:hover {
+  background: var(--crema);
+}
