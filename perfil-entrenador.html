@@ -83,50 +83,68 @@
 
       <!-- Pop UP de Equipo-->
       <dialog id="modal-equipo">
-        <header id = "headerEquipo">  
-          <h2>Equipo Pokémon</h2>
+        <header class = "headerEquipo">
+          <div class = "headerEquipoIzquierda">
+            <img src="./assets/iconos/iconoEquipo.svg" alt="imagen de equipo" class = "equipoLogo"> 
+            <h2>Team Pokémon</h2>
+          </div>
           <form method="dialog">
             <button class="cerrar">X</button>
           </form>
         </header>
-        <p id = "espacios-ocupados">5 de 6 espacios ocupados</p>
-        <article id="PokemonCardsTable">
+        <p class = "espacios-ocupados">5 de 6 espacios ocupados</p>
+        <article class="PokemonCardsTable">
             <section class = "pokemonSquare">
                     <img src="./assets/charmeleon.png" alt="imagen de pokemon">
                     <p>Charmeleon</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/pikachu.png" alt="imagen de pokemon">
                     <p>Pikachu</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/charizard.png" alt="imagen de pokemon">
                     <p>Charizard</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/squirtle.png" alt="imagen de pokemon">
                     <p>Squirtle</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                          <button type="button" class = "boton-quitar">
+                            <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                            Quitar
+                          </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/bulbasaur.png" alt="imagen de pokemon">
                     <p>Bulbasaur</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "espacioLibre">
-                    <img src="./assets/mas.png" alt="imagen de mas" id = "mas">
+                    <img src="./assets/iconos/iconoMas.svg" alt="imagen de mas" class = "masLogo">
                     <p>Espacio Libre</p>
             </section>
         </article>
-        <footer id="buttons">
-            <button type="button" id ="addButton" class = "boton-oscuro">
+        <footer class="buttons">
+            <button type="button" class ="addButton">
             Agregar desde capturados   
             </button>
             <form method="dialog">
-              <button id = "closeButton" class = "boton-claro">Cerrar</button>
+              <button class = "closeButton">Cerrar</button>
             </form>
           </footer>
       </dialog>
