@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pokemonesCapturados.css">
   <link rel="stylesheet" href="estadistica.css">
+  <link rel="stylesheet" href="equipoPokemon.css">
   <link rel="stylesheet" href="perfil.css">
 </head>
 
@@ -82,69 +83,52 @@
 
       <!-- Pop UP de Equipo-->
       <dialog id="modal-equipo">
-        <h2>Equipo Pokémon</h2>
-        <section id="PokemonCardsTable">
-
-            <p>5 de 6 espacios ocupados</p>
+        <header id = "headerEquipo">  
+          <h2>Equipo Pokémon</h2>
+          <form method="dialog">
+            <button class="cerrar">X</button>
+          </form>
+        </header>
+        <p id = "espacios-ocupados">5 de 6 espacios ocupados</p>
+        <article id="PokemonCardsTable">
             <section class = "pokemonSquare">
-                <fieldset>
-                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
-                    <p>#001</p>
-                    <p>Nombre</p>
-                    <button type="button">Quitar</button>
-                </fieldset>
+                    <img src="./assets/charmeleon.png" alt="imagen de pokemon">
+                    <p>Charmeleon</p>
+                    <button type="button" class = "boton-oscuro">Quitar</button>
             </section>
             <section class = "pokemonSquare">
-                <fieldset>
-                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
-                    <p>#001</p>
-                    <p>Nombre</p>
-                    <button type="button">Quitar</button>
-                </fieldset>
+                    <img src="./assets/pikachu.png" alt="imagen de pokemon">
+                    <p>Pikachu</p>
+                    <button type="button" class = "boton-oscuro">Quitar</button>
             </section>
             <section class = "pokemonSquare">
-                <fieldset>
-                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
-                    <p>#001</p>
-                    <p>Nombre</p>
-                    <button type="button">Quitar</button>
-                </fieldset>
+                    <img src="./assets/charizard.png" alt="imagen de pokemon">
+                    <p>Charizard</p>
+                    <button type="button" class = "boton-oscuro">Quitar</button>
             </section>
             <section class = "pokemonSquare">
-                <fieldset>
-                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
-                    <p>#001</p>
-                    <p>Nombre</p>
-                    <button type="button">Quitar</button>
-                </fieldset>
+                    <img src="./assets/squirtle.png" alt="imagen de pokemon">
+                    <p>Squirtle</p>
+                    <button type="button" class = "boton-oscuro">Quitar</button>
             </section>
             <section class = "pokemonSquare">
-                <fieldset>
-                    <img src="./assets/pokeball-inactiva.svg" alt="imagen de pokemon">
-                    <p>#001</p>
-                    <p>Nombre</p>
-                    <button type="button">Quitar</button>
-                </fieldset>
+                    <img src="./assets/bulbasaur.png" alt="imagen de pokemon">
+                    <p>Bulbasaur</p>
+                    <button type="button" class = "boton-oscuro">Quitar</button>
             </section>
-
-            <section class = "pokemonSquare">
-                <fieldset>
+            <section class = "espacioLibre">
+                    <img src="./assets/mas.png" alt="imagen de mas" id = "mas">
                     <p>Espacio Libre</p>
-                </fieldset>
             </section>
-
-        </section>
-
-        <section id="buttons">
-            <button type="button">
+        </article>
+        <footer id="buttons">
+            <button type="button" id ="addButton" class = "boton-oscuro">
             Agregar desde capturados   
             </button>
             <form method="dialog">
-              <button>Cerrar</button>
+              <button id = "closeButton" class = "boton-claro">Cerrar</button>
             </form>
-        </section>
-
-
+          </footer>
       </dialog>
 
 
