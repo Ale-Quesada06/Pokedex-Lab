@@ -88,7 +88,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.cerrar-modal:hover {
+.cerrar-modal:hover, .cerrar-modal:focus-visible {
   background-color: var(--crema);
   color: var(--navy);
   box-shadow: 0 10px 20px var(--navy);
@@ -181,7 +181,7 @@
   cursor:pointer;
   transition: all 0.3s ease-in-out;
 }
-.btn-ver-detalle:hover {
+.btn-ver-detalle:hover, .btn-ver-detalle:focus-visible {
   background-color: var(--crema);
   color: var(--navy);
   box-shadow: 0 10px 20px var(--azul);
@@ -228,7 +228,7 @@
 
 }
 
-.btn-quitar-favorito:hover {
+.btn-quitar-favorito:hover, .btn-quitar-favorito:focus-visible {
   background-color: var(--crema);
   color: var(--rojo);
   box-shadow: 0 10px 20px var(--rojo);
@@ -273,7 +273,7 @@
 
 }
 
-.btn-agregar:hover {
+.btn-agregar:hover, .btn-agregar:focus-visible {
   background-color: var(--navy);
   color: var(--blanco);
   box-shadow: 0 10px 20px var(--navy);
@@ -313,7 +313,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.btn-cerrar:hover {
+.btn-cerrar:hover, .btn-cerrar:focus-visible {
   background-color: var(--crema);
   color: var(--navy);
   box-shadow: 0 10px 20px var(--navy);
