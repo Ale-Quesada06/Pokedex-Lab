@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pokemonesCapturados.css">
   <link rel="stylesheet" href="estadistica.css">
+  <link rel="stylesheet" href="perfil.css">
 </head>
 
 
@@ -40,19 +41,43 @@
     <main>
       <section>
         <img class="foto-perfil" src="assets/thanos.jpg" width="250" height="200">
-        <h1>#0001 Azul</h1>
-        <p>Edad: 29</p>
-        <p>Ciudad origen: Ciudad de los Mangos</p>
-        <p>Bio: Lorem ipsum Viva NachOS</p>
+        <div class="datos-entrenador">
+
+          <div class="identidad-entrenador">
+            <span class="numero-entrenador">#0001</span>
+            <h1>Azul</h1>
+          </div>
+
+          <div class="datos-secundarios">
+              <p class="dato-edad">29 años</p>
+              <p class="dato-ubicacion">Ciudad de los Mangos</p>
+              <p class="dato-estatura">1.80 mts</p>
+          </div>
+        
+          <p>Bio: Lorem ipsum Viva NachOS</p>
+
+        </div>
 
         <button type="button">Editar Perfil</button>
       </section>
       
       <section>
-        <button type="button" id="btn-equipo" command="show-modal" commandfor="modal-equipo">Equipo Pokémon</button>
-        <button type="button" id="btn-favoritos" command="show-modal" commandfor="modal-favoritos">Favoritos</button>
-        <button type="button" id="btn-capturados" command="show-modal" commandfor="modal-capturados">Pokémon Capturados</button>
-        <button type="button" id="btn-estadisticas" command="show-modal" commandfor="modal-estadisticas">Estadísticas</button>
+        <button type="button" class="tarjeta-opcion btn-equipo" command="show-modal" commandfor="modal-equipo">
+          <span class="icono-opcion"></span>
+          Equipo Pokémon
+        </button>
+        <button type="button" class="tarjeta-opcion btn-favoritos" command="show-modal" commandfor="modal-favoritos">
+          <span class="icono-opcion"></span>
+          Favoritos
+        </button>
+        <button type="button" class="tarjeta-opcion btn-capturados" command="show-modal" commandfor="modal-capturados">
+          <span class="icono-opcion"></span>
+          Pokémon Capturados
+        </button>
+        <button type="button" class="tarjeta-opcion btn-estadisticas" command="show-modal" commandfor="modal-estadisticas">
+          <span class="icono-opcion"></span>
+          Estadísticas
+        </button>
       </section>
 
       <!-- Pop UP de Equipo-->

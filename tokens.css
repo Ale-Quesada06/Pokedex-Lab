@@ -23,6 +23,7 @@
   --blanco:         #F2F6FA;   /* fondo de tarjetas y texto sobre azul */
   --rojo:           #DC2D1A;   /* botones de acción */
   --pista:          #D6E0EB;   /* líneas y bordes tenues */
+  --sombra-negra: rgba(0, 0, 0, 0.2);
 
   /* --- Medidas que se repiten --- */
   --radio:          10px;      /* esquinas de tarjetas y paneles */
