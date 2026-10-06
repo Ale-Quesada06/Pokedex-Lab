@@ -20,7 +20,7 @@
 #modal-favoritos:modal::-webkit-scrollbar {
   display: none;
 }
-
+/* Fondo de la ventana modal */
 #modal-favoritos::backdrop {
   background-color: var(--fondo-overlay);
 }
@@ -38,6 +38,7 @@
   padding-bottom: 0.75rem;
 }
 
+/* Icono del titulo */
 #modal-favoritos h2::before {
 
   content: "";
@@ -58,14 +59,6 @@
 
   margin-right: 0.5rem;
   vertical-align: middle;
-}
-
-/* --- Texto de la ventana modal --- */
-#modal-favoritos p {
-  font-family: var(--fuente-texto);
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--azul);
 }
 
 .cerrar-modal {
@@ -94,7 +87,40 @@
   box-shadow: 0 10px 20px var(--navy);
 }
 
+/* 
+
+Contenido 
+
+*/
+
+/* --- Texto de la ventana modal --- */
+#modal-favoritos p {
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--azul);
+}
+
+.pokemon-card a {
+  text-decoration: none;
+  margin-left: auto;
+}
+
 /* --- Estilo de las tarjetas --- */
+#modal-favoritos .pokemon-card {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+  padding: 0.75rem;
+
+  background-color: var(--blanco);
+  border: 0px solid var(--navy);
+  border-radius: 30px;
+  box-shadow: 0 5px 20px var(--navy);
+
+}
+
 #modal-favoritos .pokemon-card::before {
   content:"";
   display: inline-block;
@@ -115,20 +141,6 @@
   vertical-align: middle;
 }
 
-#modal-favoritos .pokemon-card {
-  display: flex;
-  align-items: center;
-
-  gap: 0.5rem;
-  padding: 0.75rem;
-
-  background-color: var(--blanco);
-  border: 0px solid var(--navy);
-  border-radius: 30px;
-  box-shadow: 0 5px 20px var(--navy);
-
-}
-
 .pokemon-card__image {
 
   width: 110px;
@@ -139,6 +151,23 @@
 
   border-radius: var(--radio-tarjeta);
   box-shadow: 0 4px 10px var(--navy);
+}
+
+/* Informacion: numero, nombre y tipos de pokemon */
+
+#modal-favoritos .pokemon-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+#modal-favoritos .pokemon-card__number {
+  margin-bottom: 0;
+}
+
+#modal-favoritos .pokemon-card__name {
+  margin: 0;
 }
 
 .pokemon-card__number {
@@ -160,6 +189,42 @@
   font-size: 1.15rem;
   font-weight: 600;
 }
+
+/* tipos */
+
+#modal-favoritos .pokemon-card__types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tipo {
+  padding: 0.15rem 0.7rem;
+  border-radius: var(--radio-pastilla);
+
+  font-family: var(--fuente-titulo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blanco);
+
+  background-color: var(--pista);
+  box-shadow: var(--sombra-negra);
+}
+
+.tipo--planta{
+  background-color: var(--tipo-planta);
+}
+.tipo--veneno{
+  background-color: var(--tipo-veneno);
+}
+.tipo--fuego{
+  background-color: var(--tipo-fuego);
+}
+
+/* Botones de la tarjeta */
 
 .btn-ver-detalle {
   width: 140px;
@@ -199,11 +264,6 @@
   background-position: center;
 
   margin-left: 0.5rem;
-}
-
-.pokemon-card a {
-  text-decoration: none;
-  margin-left: auto;
 }
 
 .btn-quitar-favorito {
@@ -324,51 +384,4 @@
   justify-content:flex-end;
   gap: 1rem;
   background-color: var(--blanco);
-}
-
-#modal-favoritos .pokemon-card__info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-}
-
-#modal-favoritos .pokemon-card__number {
-  margin-bottom: 0;
-}
-
-#modal-favoritos .pokemon-card__name {
-  margin: 0;
-}
-
-#modal-favoritos .pokemon-card__types {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.tipo {
-  padding: 0.15rem 0.7rem;
-  border-radius: var(--radio-pastilla);
-
-  font-family: var(--fuente-titulo);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--blanco);
-
-  background-color: var(--pista);
-  box-shadow: var(--sombra-negra);
-}
-
-.tipo--planta{
-  background-color: var(--tipo-planta);
-}
-.tipo--veneno{
-  background-color: var(--tipo-veneno);
-}
-.tipo--fuego{
-  background-color: var(--tipo-fuego);
 }
