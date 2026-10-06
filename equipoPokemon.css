@@ -1,3 +1,4 @@
+/*-------------Contenedor del modal de equipo----------------*/
 #modal-equipo{
 	width: 50rem;
   padding: 0;
@@ -9,6 +10,9 @@
   font-weight: 700;
 }
 
+/*-------------Encabezado del equipo----------------*/
+
+/*-----Contenedor del titulo y logo de equipo-----*/
 .headerEquipoIzquierda{
   display: flex;
   align-items: center;
@@ -23,6 +27,7 @@
   box-shadow: 0 5px 10px var(--azul);
 }
 
+/*Contenedor del header persé*/
 .headerEquipo{
 	display: flex;
   justify-content: space-between;
@@ -30,10 +35,12 @@
   background: var(--white);
 }
 
+/*una linea debajo del header*/
 .espacios-ocupados{
 	margin: 16px 24px;
 }
 
+/*El contenedor de las tabla de los pokemones*/
 .PokemonCardsTable {
 	padding: 24px 24px;
   display: grid;
@@ -45,6 +52,7 @@
 	overflow-y: scroll;
 }
 
+/*las cartas de los pokemon*/
 .pokemonSquare {
   display: flex;
   flex-direction: column;
@@ -58,6 +66,7 @@
   border: 2px solid var(--pista);
 }
 
+/*Una carta vacía*/
 .espacioLibre {
   display: flex;
   flex-direction: column;
@@ -71,6 +80,7 @@
 	text-align: center;
 }
 
+/* Contenedor de Botones*/
 .buttons{
 	padding: 24px;
   display: flex;
@@ -79,13 +89,14 @@
 	background: var(--blanco);
 }
 
-
+/*boton con el mas*/
 .masLogo{
 	width: 80px;
 	height: 80px;
 	margin-bottom: 10px;
 }
 
+/*el boton quitar*/
 .boton-quitar {
   padding: 12px 32px;
   border: 1px solid var(--rojo);
@@ -101,6 +112,7 @@
   gap: 8px;
 }
 
+/*boton agregar pokemon*/
 .addButton {
   padding: 12px 32px;
   border: none;
@@ -113,6 +125,7 @@
   font-weight: 700;
 }
 
+/*boton de cerrar*/
 .closeButton {
   padding: 12px 32px;
   border: 3px solid var(--pista);
