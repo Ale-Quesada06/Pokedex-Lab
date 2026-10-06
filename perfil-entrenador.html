@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="pokemonesCapturados.css">
   <link rel="stylesheet" href="estadistica.css">
   <link rel="stylesheet" href="equipoPokemon.css">
+  <link rel="stylesheet" href="perfil.css">
+  <link rel="stylesheet" href="stylesFavoritos.css">
 </head>
 
 
@@ -41,67 +43,109 @@
     <main>
       <section>
         <img class="foto-perfil" src="assets/thanos.jpg" width="250" height="200">
-        <h1>#0001 Azul</h1>
-        <p>Edad: 29</p>
-        <p>Ciudad origen: Ciudad de los Mangos</p>
-        <p>Bio: Lorem ipsum Viva NachOS</p>
+        <div class="datos-entrenador">
+
+          <div class="identidad-entrenador">
+            <span class="numero-entrenador">#0001</span>
+            <h1>Azul</h1>
+          </div>
+
+          <div class="datos-secundarios">
+              <p class="dato-edad">29 años</p>
+              <p class="dato-ubicacion">Ciudad de los Mangos</p>
+              <p class="dato-estatura">1.80 mts</p>
+          </div>
+        
+          <p>Bio: Lorem ipsum Viva NachOS</p>
+
+        </div>
 
         <button type="button">Editar Perfil</button>
       </section>
       
       <section>
-        <button type="button" id="btn-equipo" command="show-modal" commandfor="modal-equipo">Equipo Pokémon</button>
-        <button type="button" id="btn-favoritos" command="show-modal" commandfor="modal-favoritos">Favoritos</button>
-        <button type="button" id="btn-capturados" command="show-modal" commandfor="modal-capturados">Pokémon Capturados</button>
-        <button type="button" id="btn-estadisticas" command="show-modal" commandfor="modal-estadisticas">Estadísticas</button>
+        <button type="button" class="tarjeta-opcion btn-equipo" command="show-modal" commandfor="modal-equipo">
+          <span class="icono-opcion"></span>
+          Equipo Pokémon
+        </button>
+        <button type="button" class="tarjeta-opcion btn-favoritos" command="show-modal" commandfor="modal-favoritos">
+          <span class="icono-opcion"></span>
+          Favoritos
+        </button>
+        <button type="button" class="tarjeta-opcion btn-capturados" command="show-modal" commandfor="modal-capturados">
+          <span class="icono-opcion"></span>
+          Pokémon Capturados
+        </button>
+        <button type="button" class="tarjeta-opcion btn-estadisticas" command="show-modal" commandfor="modal-estadisticas">
+          <span class="icono-opcion"></span>
+          Estadísticas
+        </button>
       </section>
 
       <!-- Pop UP de Equipo-->
       <dialog id="modal-equipo">
-        <header id = "headerEquipo">  
-          <h2>Equipo Pokémon</h2>
+        <header class = "headerEquipo">
+          <div class = "headerEquipoIzquierda">
+            <img src="./assets/iconos/iconoEquipo.svg" alt="imagen de equipo" class = "equipoLogo"> 
+            <h2>Team Pokémon</h2>
+          </div>
           <form method="dialog">
             <button class="cerrar">X</button>
           </form>
         </header>
-        <p id = "espacios-ocupados">5 de 6 espacios ocupados</p>
-        <article id="PokemonCardsTable">
+        <p class = "espacios-ocupados">5 de 6 espacios ocupados</p>
+        <article class="PokemonCardsTable">
             <section class = "pokemonSquare">
                     <img src="./assets/charmeleon.png" alt="imagen de pokemon">
                     <p>Charmeleon</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/pikachu.png" alt="imagen de pokemon">
                     <p>Pikachu</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/charizard.png" alt="imagen de pokemon">
                     <p>Charizard</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/squirtle.png" alt="imagen de pokemon">
                     <p>Squirtle</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                          <button type="button" class = "boton-quitar">
+                            <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                            Quitar
+                          </button>
             </section>
             <section class = "pokemonSquare">
                     <img src="./assets/bulbasaur.png" alt="imagen de pokemon">
                     <p>Bulbasaur</p>
-                    <button type="button" class = "boton-oscuro">Quitar</button>
+                    <button type="button" class = "boton-quitar">
+                      <img src="./assets/iconos/iconoMenos.svg" alt="icono de quitar" class = "iconoMenos">
+                      Quitar
+                    </button>
             </section>
             <section class = "espacioLibre">
-                    <img src="./assets/mas.png" alt="imagen de mas" id = "mas">
+                    <img src="./assets/iconos/iconoMas.svg" alt="imagen de mas" class = "masLogo">
                     <p>Espacio Libre</p>
             </section>
         </article>
-        <footer id="buttons">
-            <button type="button" id ="addButton" class = "boton-oscuro">
+        <footer class="buttons">
+            <button type="button" class ="addButton">
             Agregar desde capturados   
             </button>
             <form method="dialog">
-              <button id = "closeButton" class = "boton-claro">Cerrar</button>
+              <button class = "closeButton">Cerrar</button>
             </form>
           </footer>
       </dialog>
@@ -113,68 +157,81 @@
         <h2>Favoritos</h2>
         <p>3 Pokemon marcados como favoritos</p>
         <form method="dialog">
-          <button>X</button>
+          <button class="cerrar-modal" aria-label="Cerrar"> 
+            <img src="assets/iconos/cerrar.svg" alt="" width="20" height="20">
+            
+          </button>
         </form>
-        <p>
           <section id="lista-favoritos">
             <ul class="pokemon-list">
               <li class="pokemon-card">
-                  <img class="pokemon-favorite" src="assets/favorite-icon.svg" alt="favorite-icon" width="40" height="40">
                   <img class="pokemon-card__image" src="assets/bulbasaur.png" alt="Bulbasaur" width="96" height="96">
-                  <span class="pokemon-card__number">#001</span>
+                  
                   <span class="pokemon-card__name">Bulbasaur</span>
+                  <span class="pokemon-card__number">#001</span>
+                  
+                  <ul class="pokemon-card__types" aria-label="Tipos">
+                    <li class="tipo tipo--planta">Planta</li>
+                    <li class="tipo tipo--veneno">Veneno</li>
+                  </ul>
 
                   <a href="detalle-pokemon-bulbasaur.html">
-                    <button>Ver detalle</button>
+                    <button class="btn-ver-detalle">Ver detalle</button>
                   </a>
 
-                  <button type="button" command="show-modal" commandfor="open-favorites">
+                  <button class="btn-quitar-favorito" type="button" command="show-modal" commandfor="open-favorites">
                     Quitar de favoritos
                   </button>
 
               </li>
 
               <li class = "pokemon-card">
-                <img class="pokemon-favorite" src="assets/favorite-icon.svg" alt="favorite-icon" width="40" height="40">
                 <img class="pokemon-card__image" src="assets/charmeleon.png" alt="Charmeleon" width="96" height="96">
-                <span class="pokemon-card__number">#005</span>
+                
                 <span class="pokemon-card__name">Charmeleon</span>
+                <span class="pokemon-card__number">#005</span>
+                
+                <ul class="pokemon-card__types" aria-label="Tipos">
+                  <li class="tipo tipo--fuego">Fuego</li>
+                </ul>
 
                 <a href="detalle-pokemon-charmeleon.html">
-                  <button>Ver detalle</button>
+                  <button class="btn-ver-detalle">Ver detalle</button>
                 </a>
 
-                <button type="button" command="show-modal" commandfor="open-favorites">
-                  Quitar de favoritos
-                </button>
+                <button class="btn-quitar-favorito" type="button" command="show-modal" commandfor="open-favorites">
+                    Quitar de favoritos
+                  </button>
 
 
               </li>
 
               <li class="pokemon-card">
-                  <img class="pokemon-favorite" src="assets/favorite-icon.svg" alt="favorite-icon" width="40" height="40">
                   <img class="pokemon-card__image" src="assets/charizard.png" alt="Charizard" width="96" height="96">
-                  <span class="pokemon-card__number">#006</span>
                   <span class="pokemon-card__name">Charizard</span>
+                  <span class="pokemon-card__number">#006</span>
+                  
+                  <ul class="pokemon-card__types" aria-label="Tipos">
+                    <li class="tipo tipo--fuego">Fuego</li>
+                  </ul>
 
                   <a href="detalle-pokemon-charizard.html">
-                    <button>Ver detalle</button>
-                  </a>
+                    <button class="btn-ver-detalle">Ver detalle</button>
+                </a>
 
-                  <button type="button" command="show-modal" commandfor="open-favorites">
+                <button class="btn-quitar-favorito" type="button" command="show-modal" commandfor="open-favorites">
                     Quitar de favoritos
                   </button>
-                </a>
               </li>
               
             </ul>
 
-            <p>
-              <button type="button" command="close" commandfor="open-favorites">Confirmar</button>
-            </p>
+            <div class="acciones-footer">
+              <button type="button" class="btn-agregar">Agregar favorito</button>
+              <button type="button" class="btn-cerrar" command="close" commandfor="modal-favoritos">Cerrar</button>
+            </div>            
 
           </section>
-        </p>
       </dialog>
 
       <!-- Pop UP de Capturados-->

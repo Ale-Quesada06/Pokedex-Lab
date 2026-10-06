@@ -19,6 +19,21 @@
   border-bottom: 2px solid var(--navy);
 }
 
+.capturados-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.capturados-header h2::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--rojo) url("assets/pokeball.svg") center / 28px no-repeat;
+  box-shadow: 0 6px 14px rgba(220, 45, 26, 0.4);
+}
+
 .cerrar {
   border: none;
   background: none;

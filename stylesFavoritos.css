@@ -1,0 +1,387 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+/* --- Ventana modal de favoritos --- */
+#modal-favoritos:modal {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  max-width: 90vw;
+  padding: 1.5rem;
+  border-radius: var(--radio-modal);
+  border: 2px solid var(--gris-claro);
+  box-shadow: var(--sombra-negra);
+  background-color: #FFFFFF;
+}
+
+#modal-favoritos:modal::-webkit-scrollbar {
+  display: none;
+}
+/* Fondo de la ventana modal */
+#modal-favoritos::backdrop {
+  background-color: var(--fondo-overlay);
+}
+
+/* --- Encabezado de la ventana modal --- */
+#modal-favoritos h2 {
+    margin: 0 0 1rem;
+
+  font-family: var(--fuente-titulo);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--navy);
+
+  border-bottom: 2px solid var(--azul);
+  padding-bottom: 0.75rem;
+}
+
+/* Icono del titulo */
+#modal-favoritos h2::before {
+
+  content: "";
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+
+  background-color: var(--amarillo);
+  background-image: url("assets/iconos/iconoFavoritos.svg");
+
+  border-radius:40%;
+
+  box-shadow: 0 8px 20px var(--amarillo-borde);
+
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.cerrar-modal {
+  position:absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 46px;
+  height: 46px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding: 0;
+
+  background-color: var(--blanco);
+  border: 2px solid var(--gris);
+  border-radius: var(--radio-pastilla);
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cerrar-modal:hover, .cerrar-modal:focus-visible {
+  background-color: var(--crema);
+  color: var(--navy);
+  box-shadow: 0 10px 20px var(--navy);
+}
+
+/* 
+
+Contenido 
+
+*/
+
+/* --- Texto de la ventana modal --- */
+#modal-favoritos p {
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--azul);
+}
+
+.pokemon-card a {
+  text-decoration: none;
+  margin-left: auto;
+}
+
+/* --- Estilo de las tarjetas --- */
+#modal-favoritos .pokemon-card {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+  padding: 0.75rem;
+
+  background-color: var(--blanco);
+  border: 0px solid var(--navy);
+  border-radius: 30px;
+  box-shadow: 0 5px 20px var(--navy);
+
+}
+
+#modal-favoritos .pokemon-card::before {
+  content:"";
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+
+  background-color: var(--crema);
+  background-image: url("assets/iconos/estrella_favoritos.svg");
+  border: 2px solid var(--amarillo-borde);
+
+  border-radius:var(--radio-circulo);
+
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.pokemon-card__image {
+
+  width: 110px;
+  height: 96px;
+  margin: 0;
+  max-width: 9.5rem;
+  padding:0;
+
+  border-radius: var(--radio-tarjeta);
+  box-shadow: 0 4px 10px var(--navy);
+}
+
+/* Informacion: numero, nombre y tipos de pokemon */
+
+#modal-favoritos .pokemon-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+#modal-favoritos .pokemon-card__number {
+  margin-bottom: 0;
+}
+
+#modal-favoritos .pokemon-card__name {
+  margin: 0;
+}
+
+.pokemon-card__number {
+  display: inline-block;
+  background: var(--amarillo);
+  color: var(--navy);
+  border-radius: var(--radio-pastilla);
+  padding: 0.2rem 0.7rem;
+  font-family: var(--fuente-titulo);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--amarillo-borde);
+  margin-bottom: 0.4rem;
+}
+
+.pokemon-card__name {
+  display: block;
+  font-family: var(--fuente-titulo);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* tipos */
+
+#modal-favoritos .pokemon-card__types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tipo {
+  padding: 0.15rem 0.7rem;
+  border-radius: var(--radio-pastilla);
+
+  font-family: var(--fuente-titulo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blanco);
+
+  background-color: var(--pista);
+  box-shadow: var(--sombra-negra);
+}
+
+.tipo--planta{
+  background-color: var(--tipo-planta);
+}
+.tipo--veneno{
+  background-color: var(--tipo-veneno);
+}
+.tipo--fuego{
+  background-color: var(--tipo-fuego);
+}
+
+/* Botones de la tarjeta */
+
+.btn-ver-detalle {
+  width: 140px;
+  height: 46px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--azul);
+
+  padding: 0;
+
+  background-color: var(--blanco);
+  border: 3px solid var(--azul);
+  border-radius: var(--radio-pastilla);
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+}
+.btn-ver-detalle:hover, .btn-ver-detalle:focus-visible {
+  background-color: var(--crema);
+  color: var(--navy);
+  box-shadow: 0 10px 20px var(--azul);
+}
+
+.btn-ver-detalle::after{
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+
+  background-image: url("assets/iconos/iconoFlecha.svg");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-left: 0.5rem;
+}
+
+.btn-quitar-favorito {
+  width: 190px;
+  height: 46px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--rojo);
+
+  padding: 0;
+
+  background-color: var(--blanco);
+  border: 3px solid var(--rojo);
+  border-radius: var(--radio-pastilla);
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.btn-quitar-favorito:hover, .btn-quitar-favorito:focus-visible {
+  background-color: var(--crema);
+  color: var(--rojo);
+  box-shadow: 0 10px 20px var(--rojo);
+}
+
+.btn-quitar-favorito::after{
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+
+  background-image: url("assets/iconos/cerrar-rojo.svg");
+  background-size: 10px 10px;
+  background-position: center;
+
+  margin-left: 0.5rem;
+}
+
+/* --- Acciones del footer --- */
+.btn-agregar {
+  width: 260px;
+  height: 48px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--blanco);
+
+  padding: 0;
+
+
+  background-color: var(--azul);
+  border: 2px solid var(--azul);
+  border-radius: var(--radio-pastilla);
+  cursor:pointer;
+
+  box-shadow: 0 10px 20px var(--azul);
+  transition: all 0.3s ease-in-out;
+
+}
+
+.btn-agregar:hover, .btn-agregar:focus-visible {
+  background-color: var(--navy);
+  color: var(--blanco);
+  box-shadow: 0 10px 20px var(--navy);
+}
+
+.btn-agregar::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+
+  background-image: url("assets/iconos/agregar.svg");
+  background-size: 10px 10px;
+  background-position: center;
+
+  margin-right: 0.6rem;
+}
+
+.btn-cerrar {
+  width: 100px;
+  height: 48px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--navy);
+
+  padding: 0;
+
+  background-color: var(--blanco);
+  border: 2px solid var(--gris-claro);
+  border-radius: var(--radio-pastilla);
+  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cerrar:hover, .btn-cerrar:focus-visible {
+  background-color: var(--crema);
+  color: var(--navy);
+  box-shadow: 0 10px 20px var(--navy);
+}
+.acciones-footer {
+  width: 100%;
+  display:flex;
+  justify-content:flex-end;
+  gap: 1rem;
+  background-color: var(--blanco);
+}

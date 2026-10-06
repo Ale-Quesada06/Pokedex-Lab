@@ -23,12 +23,33 @@
   --blanco:         #F2F6FA;   /* fondo de tarjetas y texto sobre azul */
   --rojo:           #DC2D1A;   /* botones de acción */
   --pista:          #D6E0EB;   /* líneas y bordes tenues */
+  --sombra-negra: rgba(0, 0, 0, 0.2);
+  --gris:           #b3bdc7;   /* borde de la ventana modal */
+  --gris-claro:     #4e5e7a;   /* texto de la ventana modal */
+  --fondo-overlay:  rgba(15, 38, 75, 0.65);
+
+  --fuente-titulo: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --fuente-texto:  "Figtree", system-ui, "Segoe UI", sans-serif;
+
+
+
+  /* --- Tipos de Pokémon --------------------------------------------------
+     Colores de las pastillas de tipo. Todos llevan texto blanco encima, y
+     todos fueron verificados: cada uno da al menos 4.5:1 de contraste con
+     blanco, que es el mínimo que pide la norma de accesibilidad para texto
+     normal. Si cambiás alguno, volvé a revisarlo. */
+  --tipo-planta:    #306947;
+  --tipo-fuego:     #B92F1F;
+  --tipo-veneno:    #6E46B8;
 
   /* --- Medidas que se repiten --- */
   --radio:          10px;      /* esquinas de tarjetas y paneles */
   --radio-pastilla: 999px;     /* un radio absurdo siempre da la pastilla
                                   perfecta, sin importar la altura */
   --borde:          3px;       /* grosor del borde de las tarjetas */
+  --radio-circulo:  50%;       /* para hacer un círculo perfecto */
+  --radio-tarjeta: 30px;      /* radio de las tarjetas de Pokémon */
+  --radio-modal: 35px;      /* radio de la ventana modal */
 }
 
 /* Contraste verificado (el mínimo para texto normal es 4.5:1):
