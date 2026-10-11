@@ -1,3 +1,62 @@
+<!-- ============ en <head>, junto al <title> ============ -->
+<!-- El <title> dice "Lista de Pokémon", pero esta es la página de perfil: debería ser
+     descriptivo y distinto al de las otras páginas (p. ej. "Perfil de entrenador - Pokédex").
+     Además falta la meta description que el enunciado pide en los metadatos:
+     <meta name="description" content="..."> -->
+
+<!-- ============ en la foto de perfil (img src="assets/thanos.jpg") ============ -->
+<!-- A esta imagen le falta el atributo alt. Toda <img> con contenido debe llevarlo
+     (si fuera decorativa, alt=""). Sin alt es error en el validador y deja sin contexto
+     al lector de pantalla. Ej.: alt="Foto de Azul, el entrenador" -->
+
+<!-- ============ en los datos del entrenador (div class="datos-secundarios") ============ -->
+<!-- Aquí por cuestiones de accesibilidad es importante que la sintaxis le ayude a los
+     lectores de pantalla a tener más contexto para el usuario final. Por ejemplo, en este
+     momento un usuario puede confundirse y no entender a qué se refiere "Ciudad de los Mangos".
+     Se debería utilizar una lista descriptiva (<dl>), por ejemplo:
+       <dl class="entrenador__informacion">
+         <div>
+           <dt>Edad</dt>
+           <dd>29 años</dd>
+         </div>
+         ....
+       </dl> -->
+
+<!-- ============ en el <span class="icono-opcion"> de las tarjetas de opción ============ -->
+<!-- No está mal, pero normalmente si se agrega un span vacío únicamente para agregar el
+     icono por medio de css, es una mejor práctica agregarlo como un pseudoelemento
+     (en este caso ::before en el button). -->
+
+<!-- ============ en <dialog id="modal-equipo"> ============ -->
+<!-- Muy bien el uso de <dialog>. Para que el diálogo tenga nombre accesible, conviene
+     enlazar su título con aria-labelledby, como sí se hizo en el modal de estadísticas:
+     <dialog id="modal-equipo" aria-labelledby="titulo-equipo"> ... <h2 id="titulo-equipo">.
+     Aplica también a favoritos y capturados. -->
+
+<!-- ============ en modalaes (form method="dialog" del botón X) ============ -->
+<!-- [No es necesario tener que utilizar un <form> para esto, con tan solo usar el botón y
+     pasarle los atributos de: command="close" y commandfor="modal-equipo". Solo una recomendación. -->
+
+<!-- ============ en <article class="PokemonCardsTable"> / las <section class="pokemonSquare"> ============ -->
+<!-- Los Pokémon del equipo son una colección de elementos equivalentes, igual que en
+     Favoritos y Capturados, así que conviene marcarlos como lista (<ul> con <li>) y no como
+     varias <section>. Una <section>, además, normalmente lleva su propio encabezado. -->
+
+<!-- ============ en la img del equipo (alt="imagen de pokemon") ============ -->
+<!-- El alt="imagen de pokemon" se repite y no aporta: debería nombrar al Pokémon,
+     p. ej. alt="Charmeleon". Lo mismo en el resto de las tarjetas del equipo. -->
+
+<!-- ============ en el <a href="detalle-pokemon-bulbasaur.html"> con el <button> adentro ============ -->
+<!-- Un <button> dentro de un <a> no es válido (dos elementos interactivos anidados) y da
+     error en el validador. Use uno solo: el enlace para ir al detalle
+     (<a href="detalle-...">Ver detalle</a>) o un botón, pero no ambos anidados. -->
+
+<!-- ============ en el botón "Quitar de favoritos" (command="show-modal" commandfor="open-favorites") ============ -->
+<!-- Dos cosas: "Quitar de favoritos" no debería abrir un modal (command="show-modal"),
+     y commandfor="open-favorites" apunta a un id que no existe en la página. Para Lab 1 el
+     botón puede no hacer nada (type="button"), pero el commandfor no debe apuntar a un id
+     inexistente. -->
+
 <!DOCTYPE html>
 <html lang="es">
 
