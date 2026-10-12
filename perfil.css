@@ -4,6 +4,9 @@
    ni el subtítulo <small>. O se agregan esos elementos al HTML, o se quitan
    estas reglas para no dejar CSS sin uso. Muy bien el resto de la sección. */
 
+/* en .datos-secundarios p  */
+/* No es necesario usar flexbox, ya que el icono lo están agregando con un pseudo-elemento */
+
 /* Podex — Perfil de entrenador
    Estilos específicos de la página de perfil
 
