@@ -5,7 +5,8 @@
    estas reglas para no dejar CSS sin uso. Muy bien el resto de la sección. */
 
 /* en .datos-secundarios p  */
-/* No es necesario usar flexbox, ya que el icono lo están agregando con un pseudo-elemento */
+/* No es necesario usar flexbox, ya que el icono lo están agregando con un pseudo-elemento.
+   La mejor práctica es agregar display: inline-block en el ::before y un margin a la derecha. */
 
 /* Podex — Perfil de entrenador
    Estilos específicos de la página de perfil
