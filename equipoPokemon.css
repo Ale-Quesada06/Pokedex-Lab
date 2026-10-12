@@ -1,3 +1,7 @@
+/* en .pokemonSquare */
+/* Los button dentro de este y en pantallas pequeñas están creciendo más que su padre, 
+   para estos casos es necesario específicar que el width es de 100% */
+
 /*-------------Contenedor del modal de equipo----------------*/
 #modal-equipo{
 	width: 50rem;

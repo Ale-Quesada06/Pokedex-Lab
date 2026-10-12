@@ -1,3 +1,7 @@
+/* en .capturados-lista (overflow-y: scroll; grid-template-columns: 1fr 1fr 1fr 1fr) */
+/* Detalles menores: overflow-y: auto muestra la barra solo cuando hace falta, y
+   grid-template-columns: repeat(4, 1fr) es más limpio. */
+
 #modal-capturados {
   width: 800px;
   padding: 0;
