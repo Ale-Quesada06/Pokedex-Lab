@@ -1,3 +1,9 @@
+/* en .contenido-opcion / .contenido-opcion strong / small */
+/* Estas reglas no tienen HTML que las use: en index/perfil el botón solo
+   tiene el texto directo (p. ej. "Equipo Pokémon"), sin <span class="contenido-opcion">
+   ni el subtítulo <small>. O se agregan esos elementos al HTML, o se quitan
+   estas reglas para no dejar CSS sin uso. Muy bien el resto de la sección. */
+
 /* Podex — Perfil de entrenador
    Estilos específicos de la página de perfil
 
