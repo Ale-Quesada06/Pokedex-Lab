@@ -6,7 +6,6 @@
 // =============================================================
 import { buscarPorId, numeroPokedex } from './datos.js';
 import { listaCapturados } from './capturados.js';
-import { agregarFavoritos } from './favoritos.js';
 
 function pintarCapturados() {
   // Convierte los ids guardados en fichas completas (y descarta ids raros)
@@ -53,8 +52,6 @@ function pintarCapturados() {
 }
 
 pintarCapturados();
-
-const botonFavorito = document.querySelector('#btn-marcar-favorito');
 
 botonFavorito.addEventListener('click', () => {
   const seleccionados = document. querySelectorAll('#modal-capturados .captura__check:checked');
