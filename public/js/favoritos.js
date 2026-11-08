@@ -114,8 +114,6 @@ function agregarFavoritos() {
 
         escribir(favoritos);
         pintarFavoritos();
-
-        alert('Pokémon agregados a favoritos');
 }
 
 const lista = document.querySelector('#lista-favoritos');
