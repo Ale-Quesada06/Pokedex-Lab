@@ -6,6 +6,7 @@
 // =============================================================
 import { buscarPorId, numeroPokedex } from './datos.js';
 import { listaCapturados } from './capturados.js';
+import { pintarMiniSprites } from './utilidades.js';
 
 function pintarCapturados() {
   // Convierte los ids guardados en fichas completas (y descarta ids raros)
@@ -20,15 +21,7 @@ function pintarCapturados() {
     detalle.textContent = `${capturados.length} Pokémon en tu colección`;
   }
 
-  const mini = document.querySelector('.seccion--capturados .mini-sprites');
-  if (mini) {
-    const primeros = capturados.slice(0, 3)
-      .map((p) => `<li><img src="assets/${p.slug}.png" alt="" width="34" height="34"></li>`)
-      .join('');
-    const resto = capturados.length > 3
-      ? `<li class="mini-sprites__mas">+${capturados.length - 3}</li>` : '';
-    mini.innerHTML = primeros + resto;
-  }
+  pintarMiniSprites(document.querySelector('.seccion--capturados .mini-sprites'), capturados);
 
   // 2) Grilla dentro del diálogo "Pokémon capturados"
   const grilla = document.querySelector('#modal-capturados .capturados');
@@ -52,10 +45,3 @@ function pintarCapturados() {
 }
 
 pintarCapturados();
-
-botonFavorito.addEventListener('click', () => {
-  const seleccionados = document. querySelectorAll('#modal-capturados .captura__check:checked');
-  const ids = [...seleccionados].map((checkbox) => Number(checkbox.value));
-
-  agregarFavoritos(ids);
-})

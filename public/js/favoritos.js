@@ -1,4 +1,5 @@
 import {buscarPorId, numeroPokedex} from './datos.js';
+import { pintarMiniSprites } from './utilidades.js';
 const CLAVE = 'pokedex:favoritos';
 
 function leer() {
@@ -35,9 +36,7 @@ function pintarFavoritos() {
 
     contador.textContent = `${favoritos.length} Pokémon marcados como favoritos`;
 
-    const primeros = favoritos.slice(0,3).map((p) => `<li><img src="assets/${p.slug}.png" alt="" width="34" height="34"></li>`).join('');
-    const resto = favoritos.length > 3 ? `<li class="mini-sprites__mas">+${favoritos.length - 3}</li>` : '';
-    mini.innerHTML = primeros + resto;
+    pintarMiniSprites(mini, favoritos);
     if (favoritos.length === 0) {
         lista.innerHTML = '<li class="favoritos__vacio">Todavía no capturaste ninguno. Entrá a la Pokédex y tocá “Capturar”.</li>';
         return;
