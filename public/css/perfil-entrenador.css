@@ -13,7 +13,6 @@
      6. Equipo   7. Favoritos   8. Estadísticas   9. Capturados
    ========================================================================== */
 
-
 /* --------------------------------------------------------------------------
    1. Íconos
    -------------------------------------------------------------------------- */
@@ -33,9 +32,17 @@
   stroke-linejoin: round;
 }
 
-.icono--chico  { width: 1.1rem; height: 1.1rem; }
-.icono--grande { width: 2.4rem; height: 2.4rem; }
-.icono--lleno  { fill: currentColor; }
+.icono--chico {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.icono--grande {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.icono--lleno {
+  fill: currentColor;
+}
 
 /* Estrella de favorito: relleno dorado con contorno navy (el dorado solo,
    sobre fondo claro, no tendría contraste). */
@@ -46,7 +53,6 @@
   stroke: var(--navy);
   stroke-width: 1.8;
 }
-
 
 /* --------------------------------------------------------------------------
    2. Tarjeta del entrenador
@@ -65,7 +71,7 @@
   background: linear-gradient(180deg, #fff, var(--blanco));
   border-radius: var(--radio-xl);
   box-shadow: var(--sombra-3), var(--brillo);
-  animation: aparecer .6s var(--ease) backwards;
+  animation: aparecer 0.6s var(--ease) backwards;
 }
 
 @media (width >= 40rem) {
@@ -79,9 +85,16 @@
     text-align: left;
   }
 
-  .entrenador__avatar { grid-area: avatar; }
-  .entrenador__datos  { grid-area: datos; align-self: center; }
-  .entrenador__editar { grid-area: editar; }
+  .entrenador__avatar {
+    grid-area: avatar;
+  }
+  .entrenador__datos {
+    grid-area: datos;
+    align-self: center;
+  }
+  .entrenador__editar {
+    grid-area: editar;
+  }
 }
 
 /* El avatar sobre las rayitas, con marco amarillo y un halo más claro. */
@@ -92,8 +105,8 @@
   border: 4px solid var(--amarillo);
   border-radius: var(--radio-xl);
   background: var(--sprite-zona);
-  box-shadow: 0 0 0 4px rgba(250, 209, 98, .35), var(--sombra-2);
-  transition: transform .4s var(--ease);
+  box-shadow: 0 0 0 4px rgba(250, 209, 98, 0.35), var(--sombra-2);
+  transition: transform 0.4s var(--ease);
 }
 
 .entrenador__avatar:hover {
@@ -105,19 +118,21 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: .75rem;
-  margin: 0 0 .75rem;
+  gap: 0.75rem;
+  margin: 0 0 0.75rem;
 }
 
 @media (width >= 40rem) {
-  .entrenador h1 { justify-content: flex-start; }
+  .entrenador h1 {
+    justify-content: flex-start;
+  }
 }
 
 /* El número dentro de la h1: misma pastilla amarilla que en la ficha. */
 .entrenador h1 span {
-  font-size: .4em;
+  font-size: 0.4em;
   background: var(--amarillo);
-  padding: .35em .8em;
+  padding: 0.35em 0.8em;
   border-radius: var(--radio-pastilla);
   box-shadow: inset 0 -3px 0 var(--amarillo-borde);
 }
@@ -126,23 +141,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: .6rem;
-  margin: 0 0 .9rem;
+  gap: 0.6rem;
+  margin: 0 0 0.9rem;
   padding: 0;
   list-style: none;
 }
 
 @media (width >= 40rem) {
-  .entrenador__chips { justify-content: flex-start; }
+  .entrenador__chips {
+    justify-content: flex-start;
+  }
 }
 
 .entrenador__chips li {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  padding: .45rem .9rem;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
   background: var(--crema);
-  border: 1.5px solid rgba(240, 182, 57, .55);
+  border: 1.5px solid rgba(240, 182, 57, 0.55);
   border-radius: var(--radio-pastilla);
   font-weight: 600;
 }
@@ -153,7 +170,6 @@
   color: var(--tinta-suave);
 }
 
-
 /* --------------------------------------------------------------------------
    3. Tarjetas de sección
    -------------------------------------------------------------------------- */
@@ -162,7 +178,10 @@
    contiene un <button> que ocupa todo el espacio. */
 .secciones {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);   /* minmax(0,…): deja que la columna se encoja */
+  grid-template-columns: minmax(
+    0,
+    1fr
+  ); /* minmax(0,…): deja que la columna se encoja */
   gap: 1.25rem;
   margin: 1.5rem 0 0;
   padding: 0;
@@ -170,7 +189,9 @@
 }
 
 @media (width >= 40rem) {
-  .secciones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .secciones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Un <button> tiene estilos del navegador (borde, fondo, fuente propia).
@@ -192,21 +213,39 @@
   border-radius: var(--radio-lg);
   box-shadow: var(--sombra-2), var(--brillo);
   cursor: pointer;
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-  animation: aparecer .55s var(--ease) backwards;
+  transition: transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+  animation: aparecer 0.55s var(--ease) backwards;
 }
 
-.secciones li { min-width: 0; }
+.secciones li {
+  min-width: 0;
+}
 
 @media (width < 40rem) {
-  .seccion { gap: 1rem; padding: 1rem; }
-  .seccion__icono { width: 4rem; height: 4rem; border-radius: 1.25rem; }
-  .seccion__titulo { font-size: 1.35rem; }
+  .seccion {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .seccion__icono {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1.25rem;
+  }
+  .seccion__titulo {
+    font-size: 1.35rem;
+  }
 }
 
-.secciones li:nth-child(2) .seccion { animation-delay: .07s; }
-.secciones li:nth-child(3) .seccion { animation-delay: .14s; }
-.secciones li:nth-child(4) .seccion { animation-delay: .21s; }
+.secciones li:nth-child(2) .seccion {
+  animation-delay: 0.07s;
+}
+.secciones li:nth-child(3) .seccion {
+  animation-delay: 0.14s;
+}
+.secciones li:nth-child(4) .seccion {
+  animation-delay: 0.21s;
+}
 
 .seccion:hover,
 .seccion:focus-visible {
@@ -215,7 +254,7 @@
 }
 
 .seccion:active {
-  transform: translateY(-2px) scale(.99);
+  transform: translateY(-2px) scale(0.99);
 }
 
 .seccion:focus-visible {
@@ -224,10 +263,19 @@
 
 /* Cada sección tiene su color, guardado en una variable propia
    (--color-seccion) que el ícono lee. Cambiar el color = una línea. */
-.seccion--equipo       { --color-seccion: var(--azul); }
-.seccion--capturados   { --color-seccion: var(--rojo); }
-.seccion--favoritos    { --color-seccion: var(--amarillo); color: var(--navy); }
-.seccion--estadisticas { --color-seccion: var(--verde); }
+.seccion--equipo {
+  --color-seccion: var(--azul);
+}
+.seccion--capturados {
+  --color-seccion: var(--rojo);
+}
+.seccion--favoritos {
+  --color-seccion: var(--amarillo);
+  color: var(--navy);
+}
+.seccion--estadisticas {
+  --color-seccion: var(--verde);
+}
 
 .seccion__icono {
   display: grid;
@@ -238,11 +286,14 @@
   border-radius: 1.5rem;
   color: #fff;
   background: var(--color-seccion);
-  box-shadow: 0 12px 20px -8px var(--color-seccion), inset 0 2px 0 rgba(255, 255, 255, .35);
-  transition: transform .35s var(--ease);
+  box-shadow: 0 12px 20px -8px var(--color-seccion),
+    inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.35s var(--ease);
 }
 
-.seccion--favoritos .seccion__icono { color: var(--navy); }
+.seccion--favoritos .seccion__icono {
+  color: var(--navy);
+}
 
 /* Al pasar el mouse el ícono da un pequeño giro. */
 .seccion:hover .seccion__icono {
@@ -252,7 +303,7 @@
 .seccion__texto {
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: 0.3rem;
   flex: 1;
   min-width: 0;
 }
@@ -288,32 +339,38 @@
 /* Los mini-sprites se solapan un poco, como un abanico de fichas. */
 .mini-sprites {
   display: flex;
-  margin: .4rem 0 0;
+  margin: 0.4rem 0 0;
   padding: 0;
   list-style: none;
 }
 
-.mini-sprites li {
+/* Cada círculo es un <span> (dentro de un <button> no se permite <ul>). */
+.mini-sprites > span {
   display: grid;
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  margin-left: -.75rem;
+  margin-left: -0.75rem;
   border: 3px solid #fff;
   border-radius: 50%;
-  background: #EAF2FA;
-  box-shadow: 0 3px 8px -2px rgba(20, 44, 82, .35);
+  background: #eaf2fa;
+  box-shadow: 0 3px 8px -2px rgba(20, 44, 82, 0.35);
 }
 
-.mini-sprites li:first-child { margin-left: 0; }
+.mini-sprites > span:first-child {
+  margin-left: 0;
+}
 
-.mini-sprites img { width: 2.1rem; height: 2.1rem; }
+.mini-sprites img {
+  width: 2.1rem;
+  height: 2.1rem;
+}
 
 .mini-sprites .mini-sprites__mas {
   background: var(--navy);
   color: #fff;
   font-family: var(--fuente-titulo);
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
@@ -321,23 +378,41 @@
 .mini-barras {
   display: flex;
   align-items: flex-end;
-  gap: .4rem;
+  gap: 0.4rem;
   height: 2.75rem;
-  margin-top: .4rem;
+  margin-top: 0.4rem;
 }
 
 .mini-barras span {
-  width: .75rem;
-  border-radius: .4rem .4rem .2rem .2rem;
+  width: 0.75rem;
+  border-radius: 0.4rem 0.4rem 0.2rem 0.2rem;
   animation: crecer 1s var(--ease) backwards;
 }
 
-.mini-barras span:nth-child(1) { height: 1.6rem; background: var(--stat-ps); }
-.mini-barras span:nth-child(2) { height: 2.3rem; background: var(--stat-ataque);    animation-delay: .08s; }
-.mini-barras span:nth-child(3) { height: 1.9rem; background: var(--stat-defensa);   animation-delay: .16s; }
-.mini-barras span:nth-child(4) { height: 2.6rem; background: var(--stat-velocidad); animation-delay: .24s; }
-.mini-barras span:nth-child(5) { height: 1.4rem; background: var(--stat-defensa);   animation-delay: .32s; }
-
+.mini-barras span:nth-child(1) {
+  height: 1.6rem;
+  background: var(--stat-ps);
+}
+.mini-barras span:nth-child(2) {
+  height: 2.3rem;
+  background: var(--stat-ataque);
+  animation-delay: 0.08s;
+}
+.mini-barras span:nth-child(3) {
+  height: 1.9rem;
+  background: var(--stat-defensa);
+  animation-delay: 0.16s;
+}
+.mini-barras span:nth-child(4) {
+  height: 2.6rem;
+  background: var(--stat-velocidad);
+  animation-delay: 0.24s;
+}
+.mini-barras span:nth-child(5) {
+  height: 1.4rem;
+  background: var(--stat-defensa);
+  animation-delay: 0.32s;
+}
 
 /* --------------------------------------------------------------------------
    4. Diálogos
@@ -362,15 +437,12 @@
   background: #fff;
   border: 0;
   border-radius: var(--radio-xl);
-  box-shadow: var(--sombra-3), 0 0 0 1px rgba(255, 255, 255, .35);
+  box-shadow: var(--sombra-3), 0 0 0 1px rgba(255, 255, 255, 0.35);
 
   opacity: 0;
-  transform: translateY(24px) scale(.96);
-  transition:
-    opacity .3s var(--ease),
-    transform .3s var(--ease),
-    overlay .3s allow-discrete,
-    display .3s allow-discrete;
+  transform: translateY(24px) scale(0.96);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease),
+    overlay 0.3s allow-discrete, display 0.3s allow-discrete;
 }
 
 .modal--ancho {
@@ -389,7 +461,7 @@
 @starting-style {
   .modal[open] {
     opacity: 0;
-    transform: translateY(24px) scale(.96);
+    transform: translateY(24px) scale(0.96);
   }
 }
 
@@ -397,26 +469,28 @@
 .modal::before {
   content: "";
   flex: none;
-  height: .5rem;
+  height: 0.5rem;
   background: linear-gradient(90deg, var(--amarillo), var(--amarillo-borde));
 }
 
 /* ::backdrop es la capa oscura detrás del diálogo. backdrop-filter: blur
    difumina la página de atrás. */
 .modal::backdrop {
-  background: rgba(10, 24, 48, .66);
+  background: rgba(10, 24, 48, 0.66);
   backdrop-filter: blur(6px);
   opacity: 0;
-  transition:
-    opacity .3s var(--ease),
-    overlay .3s allow-discrete,
-    display .3s allow-discrete;
+  transition: opacity 0.3s var(--ease), overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
 }
 
-.modal[open]::backdrop { opacity: 1; }
+.modal[open]::backdrop {
+  opacity: 1;
+}
 
 @starting-style {
-  .modal[open]::backdrop { opacity: 0; }
+  .modal[open]::backdrop {
+    opacity: 0;
+  }
 }
 
 /* Con un diálogo abierto, la página de atrás no debe moverse con la rueda. */
@@ -425,10 +499,18 @@ body:has(dialog[open]) {
 }
 
 /* Colores propios de cada diálogo (los lee el ícono de la cabecera). */
-.modal--equipo       { --color-modal: var(--azul); }
-.modal--favoritos    { --color-modal: var(--amarillo); }
-.modal--estadisticas { --color-modal: var(--verde); }
-.modal--capturados   { --color-modal: var(--rojo); }
+.modal--equipo {
+  --color-modal: var(--azul);
+}
+.modal--favoritos {
+  --color-modal: var(--amarillo);
+}
+.modal--estadisticas {
+  --color-modal: var(--verde);
+}
+.modal--capturados {
+  --color-modal: var(--rojo);
+}
 
 .modal__cabecera {
   flex: none;
@@ -441,13 +523,15 @@ body:has(dialog[open]) {
 }
 
 @media (width >= 40rem) {
-  .modal__cabecera { padding-inline: 2rem; }
+  .modal__cabecera {
+    padding-inline: 2rem;
+  }
 }
 
 .modal__titulo {
   display: flex;
   align-items: center;
-  gap: .85rem;
+  gap: 0.85rem;
 }
 
 .modal__titulo h2 {
@@ -466,7 +550,9 @@ body:has(dialog[open]) {
   box-shadow: 0 8px 14px -6px var(--color-modal);
 }
 
-.modal--favoritos .modal__icono { color: var(--navy); }
+.modal--favoritos .modal__icono {
+  color: var(--navy);
+}
 
 /* Botón X: círculo de 46px (cómodo para el dedo). Al pasar el mouse gira. */
 .modal__cerrar {
@@ -478,7 +564,7 @@ body:has(dialog[open]) {
   padding: 0;
   color: var(--navy);
   background: var(--blanco);
-  border: 2px solid #DCE5F0;
+  border: 2px solid #dce5f0;
   border-radius: 50%;
   cursor: pointer;
   transition: transform var(--dur) var(--ease), background var(--dur);
@@ -500,7 +586,9 @@ body:has(dialog[open]) {
 }
 
 @media (width >= 40rem) {
-  .modal__cuerpo { padding: 1.5rem 2rem 1.75rem; }
+  .modal__cuerpo {
+    padding: 1.5rem 2rem 1.75rem;
+  }
 }
 
 .modal__subtitulo {
@@ -508,7 +596,7 @@ body:has(dialog[open]) {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: .75rem;
+  gap: 0.75rem;
   margin: 0 0 1.25rem;
   color: var(--tinta-suave);
   font-weight: 500;
@@ -516,7 +604,7 @@ body:has(dialog[open]) {
 
 .modal__nota {
   margin: 1rem 0 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--tinta-suave);
 }
 
@@ -533,20 +621,21 @@ body:has(dialog[open]) {
 }
 
 @media (width >= 40rem) {
-  .modal__pie { padding-inline: 2rem; }
+  .modal__pie {
+    padding-inline: 2rem;
+  }
 }
 
 .modal__acciones {
   display: flex;
   flex-wrap: wrap;
-  gap: .75rem;
+  gap: 0.75rem;
 }
 
 /* Amarillo sobre blanco no se ve: dentro de los diálogos el foco es azul. */
 .modal :focus-visible {
   outline-color: var(--azul-borde);
 }
-
 
 /* --------------------------------------------------------------------------
    5. Piezas compartidas por los diálogos
@@ -557,7 +646,7 @@ body:has(dialog[open]) {
   position: relative;
   display: grid;
   place-items: center;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   background: var(--sprite-zona);
 }
@@ -566,29 +655,39 @@ body:has(dialog[open]) {
   width: 5.25rem;
   height: 5.25rem;
   object-fit: contain;
-  filter: drop-shadow(0 6px 6px rgba(20, 44, 82, .28));
-  transition: transform .35s var(--ease);
+  filter: drop-shadow(0 6px 6px rgba(20, 44, 82, 0.28));
+  transition: transform 0.35s var(--ease);
 }
 
-.sprite-zona--chica { width: 4.75rem; height: 4.75rem; flex-shrink: 0; }
-.sprite-zona--chica img { width: 3.9rem; height: 3.9rem; }
+.sprite-zona--chica {
+  width: 4.75rem;
+  height: 4.75rem;
+  flex-shrink: 0;
+}
+.sprite-zona--chica img {
+  width: 3.9rem;
+  height: 3.9rem;
+}
 
 .sprite-zona--mini {
   padding: 0;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
 }
 
-.sprite-zona--mini img { width: 2.75rem; height: 2.75rem; }
+.sprite-zona--mini img {
+  width: 2.75rem;
+  height: 2.75rem;
+}
 
 /* Pastilla del número (#001) */
 .numero {
   display: inline-block;
-  padding: .15rem .6rem;
+  padding: 0.15rem 0.6rem;
   border-radius: var(--radio-pastilla);
   background: var(--amarillo);
   color: var(--navy);
   font-family: var(--fuente-titulo);
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.4;
   box-shadow: inset 0 -2px 0 var(--amarillo-borde);
@@ -596,22 +695,21 @@ body:has(dialog[open]) {
 
 .sprite-zona > .numero {
   position: absolute;
-  top: .5rem;
-  left: .5rem;
+  top: 0.5rem;
+  left: 0.5rem;
 }
 
 .tipos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: .4rem;
+  gap: 0.4rem;
 }
 
 .tipos .tipo {
-  padding: .2rem .65rem;
-  font-size: .75rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
 }
-
 
 /* --------------------------------------------------------------------------
    6. Equipo
@@ -630,13 +728,14 @@ body:has(dialog[open]) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .6rem;
-  padding: .9rem;
+  gap: 0.6rem;
+  padding: 0.9rem;
   background: #fff;
   border: 2px solid var(--linea);
   border-radius: 1.4rem;
   box-shadow: var(--sombra-1);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  transition: transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
 }
 
 .equipo__ficha:hover {
@@ -648,7 +747,10 @@ body:has(dialog[open]) {
   transform: scale(1.1) rotate(-3deg);
 }
 
-.equipo__ficha .sprite-zona { width: 100%; padding-top: 1.9rem; }
+.equipo__ficha .sprite-zona {
+  width: 100%;
+  padding-top: 1.9rem;
+}
 
 .equipo__ficha h3 {
   margin: 0;
@@ -661,13 +763,13 @@ body:has(dialog[open]) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .6rem;
+  gap: 0.6rem;
   min-height: 12rem;
-  color: #3A5A8F;
+  color: #3a5a8f;
   font-weight: 600;
-  border: 3px dashed #8FAAD3;
+  border: 3px dashed #8faad3;
   border-radius: 1.4rem;
-  background: rgba(41, 103, 197, .06);
+  background: rgba(41, 103, 197, 0.06);
 }
 
 .equipo__mas {
@@ -678,7 +780,7 @@ body:has(dialog[open]) {
   color: var(--azul);
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0 8px 16px -6px rgba(41, 103, 197, .5);
+  box-shadow: 0 8px 16px -6px rgba(41, 103, 197, 0.5);
 }
 
 .equipo__mas .icono {
@@ -687,14 +789,13 @@ body:has(dialog[open]) {
   stroke-width: 2.6;
 }
 
-
 /* --------------------------------------------------------------------------
    7. Favoritos
    -------------------------------------------------------------------------- */
 
 .favoritos {
   display: grid;
-  gap: .75rem;
+  gap: 0.75rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -707,13 +808,14 @@ body:has(dialog[open]) {
   display: grid;
   grid-template-columns: auto auto 1fr;
   align-items: center;
-  gap: .75rem 1rem;
-  padding: .75rem 1rem;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
   background: var(--blanco);
   border: 2px solid var(--linea);
   border-radius: 1.4rem;
   box-shadow: var(--sombra-1);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  transition: transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
 }
 
 .favorito:hover {
@@ -722,18 +824,22 @@ body:has(dialog[open]) {
 }
 
 @media (width >= 48rem) {
-  .favorito { grid-template-columns: auto auto 1fr auto; }
+  .favorito {
+    grid-template-columns: auto auto 1fr auto;
+  }
 }
 
 .favorito__acciones {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
-  gap: .6rem;
+  gap: 0.6rem;
 }
 
 @media (width >= 48rem) {
-  .favorito__acciones { grid-column: auto; }
+  .favorito__acciones {
+    grid-column: auto;
+  }
 }
 
 .favorito__estrella {
@@ -742,27 +848,28 @@ body:has(dialog[open]) {
   width: 2.9rem;
   height: 2.9rem;
   background: var(--crema);
-  border: 2px solid rgba(240, 182, 57, .6);
+  border: 2px solid rgba(240, 182, 57, 0.6);
   border-radius: 50%;
 }
 
 .favorito__datos {
   display: flex;
   flex-direction: column;
-  gap: .4rem;
+  gap: 0.4rem;
 }
 
-.favorito__datos .tipos { justify-content: flex-start; }
+.favorito__datos .tipos {
+  justify-content: flex-start;
+}
 
 .favorito__datos h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: .6rem;
+  gap: 0.6rem;
   margin: 0;
   font-size: 1.4rem;
 }
-
 
 /* --------------------------------------------------------------------------
    8. Estadísticas
@@ -782,7 +889,7 @@ body:has(dialog[open]) {
 }
 
 .stats-table--equipo thead th {
-  padding-block: .9rem;
+  padding-block: 0.9rem;
 }
 
 .stats-table--equipo thead th:first-child {
@@ -791,7 +898,7 @@ body:has(dialog[open]) {
 }
 
 .stats-table--equipo tbody tr:nth-child(even) {
-  background: #F7FAFD;
+  background: #f7fafd;
 }
 
 /* El nombre del Pokémon es un <th scope="row">: encabeza su fila. */
@@ -808,7 +915,7 @@ body:has(dialog[open]) {
 .stat-pokemon {
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 0.75rem;
 }
 
 .stats-table--equipo tbody td {
@@ -817,12 +924,20 @@ body:has(dialog[open]) {
 
 /* Las barras de styles.css cuentan las celdas desde la primera; acá la
    primera es el <th> del nombre, así que se corren una posición. */
-.stats-table--equipo tbody td:nth-child(2) { --color-stat: var(--stat-ps); }
+.stats-table--equipo tbody td:nth-child(2) {
+  --color-stat: var(--stat-ps);
+}
 .stats-table--equipo tbody td:nth-child(3),
-.stats-table--equipo tbody td:nth-child(5) { --color-stat: var(--stat-ataque); }
+.stats-table--equipo tbody td:nth-child(5) {
+  --color-stat: var(--stat-ataque);
+}
 .stats-table--equipo tbody td:nth-child(4),
-.stats-table--equipo tbody td:nth-child(6) { --color-stat: var(--stat-defensa); }
-.stats-table--equipo tbody td:nth-child(7) { --color-stat: var(--stat-velocidad); }
+.stats-table--equipo tbody td:nth-child(6) {
+  --color-stat: var(--stat-defensa);
+}
+.stats-table--equipo tbody td:nth-child(7) {
+  --color-stat: var(--stat-velocidad);
+}
 
 /* La columna del total no lleva barra. */
 .stats-table--equipo tbody td:last-child::after {
@@ -831,7 +946,7 @@ body:has(dialog[open]) {
 
 .total-pastilla {
   display: inline-block;
-  padding: .2rem .8rem;
+  padding: 0.2rem 0.8rem;
   color: #fff;
   background: var(--navy);
   border-radius: var(--radio-pastilla);
@@ -847,7 +962,6 @@ body:has(dialog[open]) {
   font-size: 1.15rem;
 }
 
-
 /* --------------------------------------------------------------------------
    9. Capturados
    -------------------------------------------------------------------------- */
@@ -857,25 +971,29 @@ body:has(dialog[open]) {
 .modal__buscador {
   display: flex;
   flex-wrap: wrap;
-  gap: .75rem;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
 .campo {
   display: flex;
   align-items: center;
-  gap: .6rem;
+  gap: 0.6rem;
   min-height: 2.9rem;
   padding: 0 1rem;
   color: var(--tinta-suave);
   background: #fff;
-  border: 2px solid #C7D5E8;
+  border: 2px solid #c7d5e8;
   border-radius: var(--radio-pastilla);
   transition: border-color var(--dur), box-shadow var(--dur);
 }
 
-.campo--texto  { flex: 1 1 14rem; }
-.campo--select { flex: 0 1 13rem; }
+.campo--texto {
+  flex: 1 1 14rem;
+}
+.campo--select {
+  flex: 0 1 13rem;
+}
 
 .campo input,
 .campo select {
@@ -893,7 +1011,7 @@ body:has(dialog[open]) {
    tiene borde ni contorno, el que se enciende es el óvalo entero. */
 .campo:focus-within {
   border-color: var(--azul);
-  box-shadow: 0 0 0 4px rgba(41, 103, 197, .2);
+  box-shadow: 0 0 0 4px rgba(41, 103, 197, 0.2);
 }
 
 .capturados-caja {
@@ -901,7 +1019,7 @@ body:has(dialog[open]) {
   overflow-y: auto;
   padding: 1rem;
   background: var(--blanco);
-  border: 2px solid #DCE5F0;
+  border: 2px solid #dce5f0;
   border-radius: var(--radio-lg);
 }
 
@@ -924,15 +1042,17 @@ body:has(dialog[open]) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .4rem;
-  padding: .6rem;
+  gap: 0.4rem;
+  padding: 0.6rem;
   padding-top: 2.6rem;
   background: #fff;
   border: 2px solid var(--linea);
   border-radius: 1.25rem;
   box-shadow: var(--sombra-1);
   cursor: pointer;
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur), background var(--dur);
+  transition: transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease), border-color var(--dur),
+    background var(--dur);
 }
 
 .captura__cuerpo:hover {
@@ -955,19 +1075,20 @@ body:has(dialog[open]) {
    hijo (la casilla marcada). Sin JavaScript. */
 .captura:has(.captura__check:checked) .captura__cuerpo {
   border-color: var(--azul);
-  background: #EEF4FD;
-  box-shadow: 0 0 0 4px rgba(41, 103, 197, .18), 0 14px 24px -12px rgba(41, 103, 197, .7);
+  background: #eef4fd;
+  box-shadow: 0 0 0 4px rgba(41, 103, 197, 0.18),
+    0 14px 24px -12px rgba(41, 103, 197, 0.7);
 }
 
 .captura:has(.captura__check:disabled) .captura__cuerpo {
-  opacity: .55;
+  opacity: 0.55;
   cursor: not-allowed;
 }
 
 .captura__check {
   position: absolute;
-  top: .7rem;
-  left: .7rem;
+  top: 0.7rem;
+  left: 0.7rem;
   z-index: 2;
   width: 1.5rem;
   height: 1.5rem;
@@ -982,8 +1103,8 @@ body:has(dialog[open]) {
    (data URI): navy #142C52 y dorado #F0B639 escritos como %23... */
 .captura__fav {
   position: absolute;
-  top: .55rem;
-  right: .55rem;
+  top: 0.55rem;
+  right: 0.55rem;
   z-index: 2;
   width: 2rem;
   height: 2rem;
@@ -991,7 +1112,8 @@ body:has(dialog[open]) {
   appearance: none;
   cursor: pointer;
   border-radius: 50%;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23142C52' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M12 3l2.8 5.8 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.7l6.2-.9z'/%3E%3C/svg%3E") center / 1.4rem no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23142C52' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M12 3l2.8 5.8 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.7l6.2-.9z'/%3E%3C/svg%3E")
+    center / 1.4rem no-repeat;
   transition: transform var(--dur) var(--ease);
 }
 
@@ -1007,7 +1129,7 @@ body:has(dialog[open]) {
 .seleccion-estado {
   display: flex;
   align-items: center;
-  gap: .9rem;
+  gap: 0.9rem;
   font-family: var(--fuente-titulo);
   font-size: 1.25rem;
 }
@@ -1029,14 +1151,22 @@ body:has(dialog[open]) {
   content: counter(sel);
 }
 
-
 /* --------------------------------------------------------------------------
    10. Animaciones propias
    -------------------------------------------------------------------------- */
 
 @keyframes crecer {
-  from { transform: scaleY(0); transform-origin: bottom; }
+  from {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
 }
 
-/* (La regla que apaga las animaciones para quien pide reducir movimiento
-   vive en styles.css, sección 12, y alcanza también a esta hoja.) */
+/* Aviso en el pie del modal de Capturados (equipo lleno, nada
+   seleccionado, etc.). Vacío no ocupa espacio visible. */
+.modal__aviso {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--tinta-suave);
+}
