@@ -98,8 +98,8 @@
               <span class="seccion__icono"><svg class="icono icono--grande" aria-hidden="true" width="24" height="24"><use href="#i-team"/></svg></span>
               <span class="seccion__texto">
                 <span class="seccion__titulo">Equipo Pokémon</span>
-                <span class="seccion__detalle">5 de 6 espacios ocupados</span>
-                <ul class="mini-sprites" aria-hidden="true"></ul>
+                <span class="seccion__detalle">0 de 6 espacios ocupados</span>
+                <span class="mini-sprites" aria-hidden="true"></span>
               </span>
               <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
             </button>
@@ -109,8 +109,8 @@
               <span class="seccion__icono"><svg class="icono icono--grande" aria-hidden="true" width="24" height="24"><use href="#i-ball"/></svg></span>
               <span class="seccion__texto">
                 <span class="seccion__titulo">Pokémon Capturados</span>
-                <span class="seccion__detalle">24 Pokémon en tu colección</span>
-                <ul class="mini-sprites" aria-hidden="true"></ul>
+                <span class="seccion__detalle">0 Pokémon en tu colección</span>
+                <span class="mini-sprites" aria-hidden="true"></span>
               </span>
               <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
             </button>
@@ -121,7 +121,7 @@
               <span class="seccion__texto">
                 <span class="seccion__titulo">Favoritos</span>
                 <span class="seccion__detalle">0 Pokémon marcados</span>
-                <ul class="mini-sprites" aria-hidden="true"></ul>
+                <span class="mini-sprites" aria-hidden="true"></span>
               </span>
               <span class="seccion__flecha"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-arrow"/></svg></span>
             </button>
@@ -167,11 +167,9 @@
       </div>
 
       <div class="modal__cuerpo">
-        <p class="modal__subtitulo">
-          <span>5 de 6 espacios ocupados</span>
-        </p>
+        <p class="modal__subtitulo" id="equipo-contador">0 de 6 espacios ocupados</p>
 
-        <ul class="equipo">
+        <ul class="equipo" id="lista-equipo">
             <li class="equipo__ficha">
               <div class="sprite-zona"><span class="numero">#001</span><img src="assets/bulbasaur.png" alt="" width="96" height="96"></div>
               <h3>Bulbasaur</h3>
@@ -360,9 +358,12 @@
       </div>
 
       <div class="modal__pie">
+        <!-- Mensajes para la persona (equipo lleno, nada seleccionado, etc.).
+            aria-live hace que los lectores de pantalla lo anuncien. -->
+        <p class="modal__aviso" id="aviso-capturados" aria-live="polite"></p>
         <div class="modal__acciones">
           <button type="button" id="btn-marcar-favorito" class="boton boton--claro"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-star"/></svg> Marcar favorito</button>
-          <button type="button" class="boton boton--primario"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg> Agregar al equipo</button>
+          <button type="button" id="btn-agregar-equipo" class="boton boton--primario"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg> Agregar al equipo</button>
         </div>
       </div>
     </dialog>
