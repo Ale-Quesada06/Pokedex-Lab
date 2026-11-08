@@ -6,6 +6,7 @@
 // =============================================================
 import { buscarPorId, numeroPokedex } from './datos.js';
 import { listaCapturados } from './capturados.js';
+import { agregarFavoritos } from './favoritos.js';
 
 function pintarCapturados() {
   // Convierte los ids guardados en fichas completas (y descarta ids raros)
@@ -38,7 +39,7 @@ function pintarCapturados() {
     } else {
       grilla.innerHTML = capturados.map((p) => `
         <li class="captura">
-          <input type="checkbox" class="captura__check" id="cap-${p.id}" aria-label="Seleccionar a ${p.nombre}">
+          <input type="checkbox" class="captura__check" id="cap-${p.id}" value="${p.id}" aria-label="Seleccionar a ${p.nombre}">
           <label class="captura__cuerpo" for="cap-${p.id}">
             <span class="sprite-zona"><img src="assets/${p.slug}.png" alt="" width="96" height="96"></span>
             <span class="numero">${numeroPokedex(p.id)}</span>
@@ -52,3 +53,12 @@ function pintarCapturados() {
 }
 
 pintarCapturados();
+
+const botonFavorito = document.querySelector('#btn-marcar-favorito');
+
+botonFavorito.addEventListener('click', () => {
+  const seleccionados = document. querySelectorAll('#modal-capturados .captura__check:checked');
+  const ids = [...seleccionados].map((checkbox) => Number(checkbox.value));
+
+  agregarFavoritos(ids);
+})
