@@ -1,8 +1,7 @@
-import { mostrarAviso, 
-    limpiarSeleccion, 
-    idsSeleccionados
-} from './utilidades.js';
+import { buscarPorId } from './datos.js';
 import { agregarAlEquipo } from './equipo.js';
+import { mostrarAviso, limpiarSeleccion, idsSeleccionados } from './utilidades.js';
+import { pintarEquipo } from './pintar-equipo.js';
 
 const btnAgregarEquipo = document.querySelector('#btn-agregar-equipo');
 btnAgregarEquipo.addEventListener('click', agregarEquipo);
@@ -11,7 +10,7 @@ function agregarEquipo() {
   const ids = idsSeleccionados();
 
   if (ids.length === 0) {
-    mostrarAviso('Selecciona al menos un Pokémon');
+    mostrarAviso('Seleccione al menos un Pokémon.');
     return;
   }
 
@@ -22,7 +21,8 @@ function agregarEquipo() {
     mensajes.push(`Se agregaron ${agregados.length} Pokémon al equipo.`);
   }
   if (rechazados.length > 0) {
-    mensajes.push(`El equipo está lleno. No se agregaron ${rechazados.length}.`);
+    const nombres = rechazados.map((id) => buscarPorId(id)?.nombre ?? id).join(', ');
+    mensajes.push(`El equipo está lleno. No se agregaron: ${nombres}.`);
   }
   if (mensajes.length === 0) {
     mensajes.push('Los Pokémon seleccionados ya estaban en el equipo.');
@@ -30,4 +30,5 @@ function agregarEquipo() {
 
   mostrarAviso(mensajes.join(' '));
   limpiarSeleccion();
+  pintarEquipo();
 }
